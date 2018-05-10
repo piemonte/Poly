@@ -4,6 +4,8 @@
 
 This library makes it easy to integrate with Google Poly while providing a few additional client-side features.
 
+[![Build Status](https://travis-ci.org/piemonte/Poly.svg?branch=master)](https://travis-ci.org/piemonte/Poly) [![Pod Version](https://img.shields.io/cocoapods/v/Poly.svg?style=flat)](http://cocoadocs.org/docsets/Poly/) [![Swift Version](https://img.shields.io/badge/language-swift%204.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Poly/blob/master/LICENSE)
+
 |  | Features |
 |:---------:|:---------------------------------------------------------------|
 | &#127874;  | layers for various styles of integration  |
