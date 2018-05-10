@@ -101,6 +101,18 @@ public class ViewController: UIViewController {
 
 }
 
+// MARK: -  status bar
+
+extension ViewController {
+    
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return .lightContent
+        }
+    }
+
+}
+
 // MARK: - ARSCNViewDelegate
 
 extension ViewController: ARSCNViewDelegate {
