@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.7.1)
+  - AlamofireNetworkActivityIndicator (2.2.0):
+    - Alamofire (~> 4.5)
+  - Cache (4.2.0)
+  - ObjectMapper (3.1.0)
+
+DEPENDENCIES:
+  - Alamofire (= 4.7.1)
+  - AlamofireNetworkActivityIndicator (= 2.2.0)
+  - Cache (= 4.2.0)
+  - ObjectMapper (= 3.1.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - Cache
+    - ObjectMapper
+
+SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
+  Cache: f28f8dd64b632155aabf9b3906b036a659048251
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+
+PODFILE CHECKSUM: 1c7eebcbd2a2b76fd35ea38aa1bbd869ed2818fc
+
+COCOAPODS: 1.5.0
