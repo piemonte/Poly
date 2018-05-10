@@ -81,6 +81,15 @@ public class ViewController: UIViewController {
         }
         
         // Poly
+        
+        Poly.shared.apiKey = "REPLACE_WITH_API_KEY"
+
+        Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (assets, count, page, error) in
+            if let assets = assets,
+                let assetModel = assets.first {
+                print("asset \(assetModel.identifier)")
+            }
+        }
 
     }
     
