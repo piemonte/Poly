@@ -24,6 +24,7 @@
 //
 
 import UIKit
+import SceneKit
 import ModelIO
 import ARKit
 
@@ -35,6 +36,9 @@ public class ViewController: UIViewController {
     
     internal var _arConfig: ARConfiguration?
     internal var _arView: ARSCNView?
+    internal var _tapGestureRecognizer: UITapGestureRecognizer?
+    
+    internal var _exampleNode: SCNNode?
     
     // MARK: - object lifecycle
     
@@ -90,5 +94,33 @@ public class ViewController: UIViewController {
 
 }
 
+// MARK: - ARSCNViewDelegate
+
 extension ViewController: ARSCNViewDelegate {
+}
+
+// MARK: - UIGestureRecognizer
+
+extension ViewController {
+    
+    @objc internal func handleTapGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+        if let arView = self._arView {
+            let point = gestureRecognizer.location(in: arView)
+            let hitTest = arView.hitTest(point, types: [.existingPlane, .existingPlaneUsingExtent, .estimatedHorizontalPlane])
+            guard let hitPoint = hitTest.first else {
+                return
+            }
+            
+            let nodePostion = SCNVector3(hitPoint.worldTransform.columns.3.x,
+                                         hitPoint.worldTransform.columns.3.y,
+                                         hitPoint.worldTransform.columns.3.z)
+            self._exampleNode?.position = nodePostion
+            
+            if let node = self._exampleNode,
+                node.parent == nil {
+                arView.scene.rootNode.addChildNode(node)
+            }
+        }
+    }
+    
 }
