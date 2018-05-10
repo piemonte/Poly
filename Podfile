@@ -22,5 +22,6 @@ target 'Poly' do
 end
 
 target 'Poly_iOS' do
+  pod 'IGListKit', '3.4.0'
   shared_pods
 end

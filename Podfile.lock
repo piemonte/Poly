@@ -3,12 +3,18 @@ PODS:
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
   - Cache (4.2.0)
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
+    - IGListKit/Diffing
+  - IGListKit/Diffing (3.4.0)
   - ObjectMapper (3.1.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.7.2)
   - AlamofireNetworkActivityIndicator (= 2.2.0)
   - Cache (= 4.2.0)
+  - IGListKit (= 3.4.0)
   - ObjectMapper (= 3.1.0)
 
 SPEC REPOS:
@@ -16,14 +22,16 @@ SPEC REPOS:
     - Alamofire
     - AlamofireNetworkActivityIndicator
     - Cache
+    - IGListKit
     - ObjectMapper
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   Cache: f28f8dd64b632155aabf9b3906b036a659048251
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
-PODFILE CHECKSUM: 403d729c21c6374d84cd12c254c1c9070d8253f3
+PODFILE CHECKSUM: 122699c560b89ce137f227e9fe0401365b6c2a01
 
 COCOAPODS: 1.5.2
