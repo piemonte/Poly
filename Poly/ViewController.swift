@@ -73,6 +73,13 @@ public class ViewController: UIViewController {
             self.view.addSubview(arView)
         }
         
+        // gestures
+        self._tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_ :)))
+        if let tapGestureRecognizer = self._tapGestureRecognizer {
+            tapGestureRecognizer.numberOfTapsRequired = 1
+            self._arView?.addGestureRecognizer(tapGestureRecognizer)
+        }
+        
         // Poly
 
     }
