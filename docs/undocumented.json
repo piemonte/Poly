@@ -1,0 +1,516 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly+Foundation.swift",
+      "line": 43,
+      "symbol": "String.dateFromRFC3339",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly+Foundation.swift",
+      "line": 51,
+      "symbol": "URLRequest.cacheKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly+Foundation.swift",
+      "line": 64,
+      "symbol": "URLSession.cancelAllDataTasks()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 38,
+      "symbol": "PolyCachePolicy.returnCacheDataElseFetch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 39,
+      "symbol": "PolyCachePolicy.fetchIgnoringCacheData",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 40,
+      "symbol": "PolyCachePolicy.returnCacheDataDontFetch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 61,
+      "symbol": "PolyError.unknown",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 62,
+      "symbol": "PolyError.server",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 63,
+      "symbol": "PolyError.invalid",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 64,
+      "symbol": "PolyError.notAuthorized",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 86,
+      "symbol": "PolyFormat.blocks",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 87,
+      "symbol": "PolyFormat.fbx",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 88,
+      "symbol": "PolyFormat.gltf",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 89,
+      "symbol": "PolyFormat.gltf2",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 90,
+      "symbol": "PolyFormat.obj",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 91,
+      "symbol": "PolyFormat.tilt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 96,
+      "symbol": "PolyComplexity.unspecified",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 97,
+      "symbol": "PolyComplexity.complex",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 98,
+      "symbol": "PolyComplexity.medium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 99,
+      "symbol": "PolyComplexity.simple",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 255,
+      "symbol": "Poly.ProgressHandler",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 256,
+      "symbol": "Poly.CompletionHandler",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 257,
+      "symbol": "Poly.AssetsCompletionHandler",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/Poly.swift",
+      "line": 360,
+      "symbol": "Poly.download(filesWithUrls:cachePolicy:progressHandler:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": null,
+      "symbol": "PolyAssetModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 30,
+      "symbol": "PolyAssetModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 34,
+      "symbol": "PolyAssetModel.createPolyAssetModel(withJson:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 42,
+      "symbol": "PolyAssetModel.identifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 43,
+      "symbol": "PolyAssetModel.displayName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 44,
+      "symbol": "PolyAssetModel.authorName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 45,
+      "symbol": "PolyAssetModel.assetDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 46,
+      "symbol": "PolyAssetModel.createdAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 47,
+      "symbol": "PolyAssetModel.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 49,
+      "symbol": "PolyAssetModel.formats",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 50,
+      "symbol": "PolyAssetModel.thumbnail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 52,
+      "symbol": "PolyAssetModel.license",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 53,
+      "symbol": "PolyAssetModel.visibility",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 54,
+      "symbol": "PolyAssetModel.isCurated",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 55,
+      "symbol": "PolyAssetModel.presentationParams",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": null,
+      "symbol": "PolyCache",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 31,
+      "symbol": "PolyCache",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 40,
+      "symbol": "PolyCache.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 53,
+      "symbol": "PolyCache.get(dataWithKey:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 66,
+      "symbol": "PolyCache.set(dataWithUrl:key:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 76,
+      "symbol": "PolyCache.set(data:key:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 89,
+      "symbol": "PolyCache.remove(withKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 93,
+      "symbol": "PolyCache.removeExpired()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
+      "line": 97,
+      "symbol": "PolyCache.removeAll()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": null,
+      "symbol": "PolyFileModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 30,
+      "symbol": "PolyFileModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 34,
+      "symbol": "PolyFileModel.createPolyFileModel(withJson:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 42,
+      "symbol": "PolyFileModel.relativePath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 43,
+      "symbol": "PolyFileModel.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 44,
+      "symbol": "PolyFileModel.contentType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": null,
+      "symbol": "PolyFormatsModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 30,
+      "symbol": "PolyFormatsModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 34,
+      "symbol": "PolyFormatsModel.createPolyFormatsModel(withJson:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 42,
+      "symbol": "PolyFormatsModel.root",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 43,
+      "symbol": "PolyFormatsModel.resources",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 45,
+      "symbol": "PolyFormatsModel.formatType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": null,
+      "symbol": "PolyPresentationParamsModel",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 30,
+      "symbol": "PolyPresentationParamsModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 34,
+      "symbol": "PolyPresentationParamsModel.createPolyFileModel(withJson:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 42,
+      "symbol": "PolyPresentationParamsModel.orientingRotationX",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 43,
+      "symbol": "PolyPresentationParamsModel.orientingRotationY",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 44,
+      "symbol": "PolyPresentationParamsModel.orientingRotationZ",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 45,
+      "symbol": "PolyPresentationParamsModel.orientingRotationW",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 46,
+      "symbol": "PolyPresentationParamsModel.colorSpace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyRequest.swift",
+      "line": null,
+      "symbol": "PolyRequest",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyRequest.swift",
+      "line": 30,
+      "symbol": "PolyRequest",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyRequest.swift",
+      "line": 40,
+      "symbol": "PolyRequest.request(withUrl:parameters:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyRequest.swift",
+      "line": 58,
+      "symbol": "PolyRequest.fetch(dataWithUrl:progressHandler:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyRequest.swift",
+      "line": 103,
+      "symbol": "PolyRequest.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/piemonte/Source/Poly"
+}

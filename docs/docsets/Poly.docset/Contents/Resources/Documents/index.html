@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Poly  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Poly  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Poly Docs</a> (31% documented)</p>
+        <p class="header-right"><a href="http://github.com/piemonte/Poly"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Poly Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Poly  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Poly.html">Poly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PolyAssetModel.html">PolyAssetModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PolyCache.html">PolyCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PolyFileModel.html">PolyFileModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PolyFormatsModel.html">PolyFormatsModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PolyPresentationParamsModel.html">PolyPresentationParamsModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PolyRequest.html">PolyRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:4Poly0A11ErrorDomainSSvp">PolyErrorDomain</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/PolyCachePolicy.html">PolyCachePolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PolyComplexity.html">PolyComplexity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PolyError.html">PolyError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/PolyFormat.html">PolyFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/URLRequest.html">URLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/URLSession.html">URLSession</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='poly' class='heading'>Poly</h1>
+
+<p><code><a href="Classes/Poly.html">Poly</a></code> is an unofficial <a href="https://poly.google.com">Google Poly</a> SDK, written in <a href="https://developer.apple.com/swift/">Swift</a>.</p>
+
+<p>This library makes it easy to integrate with Google Poly while providing a few additional client-side features.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: left">Features</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">&#127874;</td>
+<td style="text-align: left">layers for various styles of integration</td>
+</tr>
+<tr>
+<td style="text-align: center">&#128230;</td>
+<td style="text-align: left">advanced 3D data caching</td>
+</tr>
+<tr>
+<td style="text-align: center">&#128225;</td>
+<td style="text-align: left">Poly reachability support</td>
+</tr>
+<tr>
+<td style="text-align: center">&#128038;</td>
+<td style="text-align: left"><a href="https://developer.apple.com/swift/">Swift 4</a></td>
+</tr>
+</tbody></table>
+<h2 id='important-information' class='heading'>Important Information</h2>
+
+<p>Before you begin, ensure that you have read Google’s Poly <a href="https://developers.google.com/poly/develop/">documentation</a>, understand best practices for attribution, and have generated your API key.</p>
+<h2 id='quick-start' class='heading'>Quick Start</h2>
+<pre class="highlight ruby"><code>
+<span class="c1"># CocoaPods</span>
+
+<span class="n">pod</span> <span class="s2">"Poly"</span><span class="p">,</span> <span class="s2">"~&gt; 0.0.1"</span>
+
+<span class="c1"># Carthage</span>
+
+<span class="n">github</span> <span class="s2">"piemonte/Poly"</span> <span class="o">~&gt;</span> <span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span>
+
+<span class="c1"># Swift PM</span>
+
+<span class="n">let</span> <span class="n">package</span> <span class="o">=</span> <span class="no">Package</span><span class="p">(</span>
+    <span class="ss">dependencies: </span><span class="p">[</span>
+        <span class="o">.</span><span class="no">Package</span><span class="p">(</span><span class="ss">url: </span><span class="s2">"https://github.com/piemonte/Poly"</span><span class="p">,</span> <span class="ss">majorVersion: </span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+</code></pre>
+
+<p>Alternatively, drop the <a href="https://github.com/piemonte/Poly/tree/master/Sources">source files</a> into your Xcode project.</p>
+<h2 id='examples' class='heading'>Examples</h2>
+
+<p>Import the library.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Poly</span>
+</code></pre>
+
+<p>Setup your API key.</p>
+<pre class="highlight swift"><code><span class="kt">Poly</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">apiKey</span> <span class="o">=</span> <span class="s">"REPLACE_WITH_API_KEY"</span>
+</code></pre>
+
+<p>List assets using keywords.</p>
+<pre class="highlight swift"><code><span class="kt">Poly</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">assetsWithKeywords</span><span class="p">:</span> <span class="p">[</span><span class="s">"fox"</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">assets</span><span class="p">,</span> <span class="n">totalCount</span><span class="p">,</span> <span class="n">nextPage</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="c1">// assets array provides objects with information such as URLs for thumbnail images</span>
+<span class="p">}</span>
+
+<span class="c1">// you may also query for the data directly for your own model creation</span>
+
+<span class="kt">Poly</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">list</span><span class="p">(</span><span class="nv">assetsWithKeywords</span><span class="p">:</span> <span class="p">[</span><span class="s">"fox"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Get independent asset information.</p>
+<pre class="highlight swift"><code><span class="kt">Poly</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">assetWithIdentifier</span><span class="p">:</span> <span class="s">"10u8FYPC5Br"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="c1">// asset object provides information such as URLs for thumbnail images</span>
+<span class="p">}</span>
+
+<span class="c1">// you may also query for the data directly for your own model creation</span>
+
+<span class="kt">Poly</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">assetWithIdentifier</span><span class="p">:</span> <span class="s">"10u8FYPC5Br"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Download a 3D asset and it&rsquo;s resources for rendering.</p>
+<pre class="highlight swift"><code><span class="c1">// TODO: example of downloading a 3D asset itself</span>
+</code></pre>
+
+<p>The API allow private object loading but those endpoints need to be added. Auth support is available via the <code>authToken</code> property.</p>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<p>You can find <a href="https://piemonte.github.io/Poly">the docs here</a>. Documentation is generated with <a href="https://github.com/realm/jazzy">jazzy</a> and hosted on <a href="https://pages.github.com">GitHub-Pages</a>.</p>
+<h2 id='resources' class='heading'>Resources</h2>
+
+<ul>
+<li><a href="https://developers.google.com/poly/develop/ios">Poly iOS Quickstart</a></li>
+<li><a href="https://developers.google.com/poly/reference/api/rest/">Poly API Reference</a></li>
+<li><a href="https://developers.google.com/poly/">Poly Google Developer Website</a></li>
+<li><a href="https://github.com/googlevr/poly-sample-ios">Poly iOS Sample Project</a></li>
+<li><a href="https://github.com/apple/swift-evolution">Swift Evolution</a></li>
+<li><a href="http://nextlevel.engineering/">NextLevel</a> Media Capture Library</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p><code><a href="Classes/Poly.html">Poly</a></code> is available under the MIT license, see the <a href="https://github.com/piemonte/Poly/blob/master/LICENSE">LICENSE</a> file for more information.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="http://patrickpiemonte.com/" target="_blank" rel="external">Patrick Piemonte</a>. All rights reserved. (Last updated: 2018-05-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
