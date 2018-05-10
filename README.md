@@ -2,7 +2,14 @@
 
 `Poly` is an unofficial [Google Poly](https://poly.google.com) SDK, written in [Swift](https://developer.apple.com/swift/).
 
-This library makes it easy to integrate with Google Poly while providing a few additional client-side features such as data caching.
+This library makes it easy to integrate with Google Poly while providing a few additional client-side features.
+
+|  | Features |
+|:---------:|:---------------------------------------------------------------|
+| &#127874;  | layers for various styles of integration  |
+| &#128230; | advanced 3D data caching |
+| &#128225; | Poly reachability support |
+| &#128038; | [Swift 4](https://developer.apple.com/swift/) |
 
 ## Important Information
 
@@ -34,7 +41,51 @@ Alternatively, drop the [source files](https://github.com/piemonte/Poly/tree/mas
 
 ## Examples
 
+Import the library.
 
+```swift
+import Poly
+```
+
+Setup your API key.
+
+```swift
+Poly.shared.apiKey = "REPLACE_WITH_API_KEY"
+```
+
+List assets using keywords.
+
+```swift
+Poly.shared.list(assetsWithKeywords: ["fox"]) { (assets, totalCount, nextPage, error) in
+	// assets array provides objects with information such as URLs for thumbnail images
+}
+
+// you may also query for the data directly for your own model creation
+
+Poly.shared.list(assetsWithKeywords: ["fox", "cat"]) { (data, error) in
+}
+```
+
+Get independent asset information.
+
+```swift
+Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (asset, count, page, error) in
+	// asset object provides information such as URLs for thumbnail images
+}
+
+// you may also query for the data directly for your own model creation
+
+Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (data, error) in
+}
+```
+
+Download a 3D asset and it's resources for rendering.
+
+```swift
+// TODO: example of downloading a 3D asset itself
+```
+
+The API allow private object loading but those endpoints need to be added. Auth support is available via the `authToken` property.
 
 ## Documentation
 
