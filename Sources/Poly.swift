@@ -27,6 +27,7 @@ import Foundation
 import Alamofire
 import AlamofireNetworkActivityIndicator
 import ObjectMapper
+import PromiseKit
 
 internal let GooglePolyHostname = "poly.googleapis.com"
 internal let GooglePolyBaseUrl = "https://" + GooglePolyHostname

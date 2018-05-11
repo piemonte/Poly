@@ -9,6 +9,15 @@ PODS:
     - IGListKit/Diffing
   - IGListKit/Diffing (3.4.0)
   - ObjectMapper (3.1.0)
+  - PromiseKit (6.2.5):
+    - PromiseKit/CorePromise (= 6.2.5)
+    - PromiseKit/Foundation (= 6.2.5)
+    - PromiseKit/UIKit (= 6.2.5)
+  - PromiseKit/CorePromise (6.2.5)
+  - PromiseKit/Foundation (6.2.5):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.2.5):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - Alamofire (= 4.7.2)
@@ -16,6 +25,7 @@ DEPENDENCIES:
   - Cache (= 4.2.0)
   - IGListKit (= 3.4.0)
   - ObjectMapper (= 3.1.0)
+  - PromiseKit (= 6.2.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -24,6 +34,7 @@ SPEC REPOS:
     - Cache
     - IGListKit
     - ObjectMapper
+    - PromiseKit
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -31,7 +42,8 @@ SPEC CHECKSUMS:
   Cache: f28f8dd64b632155aabf9b3906b036a659048251
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
 
-PODFILE CHECKSUM: 122699c560b89ce137f227e9fe0401365b6c2a01
+PODFILE CHECKSUM: c2d172e7706ea4b3f4b215a54f83937862572ce0
 
 COCOAPODS: 1.5.2
