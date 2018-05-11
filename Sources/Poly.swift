@@ -33,26 +33,6 @@ internal let GooglePolyBaseUrl = "https://" + GooglePolyHostname
 
 // MARK: - types
 
-/// Poly cache policies
-public enum PolyCachePolicy: Int, CustomStringConvertible {
-    case returnCacheDataElseFetch
-    case fetchIgnoringCacheData
-    case returnCacheDataDontFetch
-    
-    public var description: String {
-        get {
-            switch self {
-            case .returnCacheDataElseFetch:
-                return "Return Cache Data Else Fetch"
-            case .fetchIgnoringCacheData:
-                return "Fetch Ignoring Cache Data"
-            case .returnCacheDataDontFetch:
-                return "Return Cache Data Don't Fetch"
-            }
-        }
-    }
-}
-
 /// Error domain for all Poly errors.
 public let PolyErrorDomain = "PolyErrorDomain"
 
@@ -254,6 +234,7 @@ extension Poly {
     
     public typealias ProgressHandler = (_ progress: Float) -> Void
     public typealias CompletionHandler = (_ data: Data?, _ error: Error?) -> Void
+    
     public typealias AssetsCompletionHandler = (_ assets: [PolyAssetModel]?, _ totalAssetCount: Int, _ nextPage: Int, _ error: Error?) -> Void
     
     /// Returns detailed information about an asset given its name.

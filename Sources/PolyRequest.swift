@@ -29,6 +29,30 @@ import AlamofireNetworkActivityIndicator
 
 public class PolyRequest {
     
+    // MARK: - types
+    
+    /// Poly cache policies
+    public enum CachePolicy: Int, CustomStringConvertible {
+        case returnCacheDataElseFetch
+        case fetchIgnoringCacheData
+        case returnCacheDataDontFetch
+        
+        public var description: String {
+            get {
+                switch self {
+                case .returnCacheDataElseFetch:
+                    return "Return Cache Data Else Fetch"
+                case .fetchIgnoringCacheData:
+                    return "Fetch Ignoring Cache Data"
+                case .returnCacheDataDontFetch:
+                    return "Return Cache Data Don't Fetch"
+                }
+            }
+        }
+    }
+    
+    // MARK: - ivars
+    
     internal var _request: Request?
     
 }
@@ -56,19 +80,20 @@ extension PolyRequest {
     }
     
     public func fetch(dataWithUrl url: URL,
+                      cachePolicy: CachePolicy = .returnCacheDataElseFetch,
                       progressHandler: Poly.ProgressHandler? = nil,
                       completionHandler: Poly.CompletionHandler? = nil) {
         Poly.shared._cache.removeExpired()
 
         let urlRequest = URLRequest(url: url)
-        Poly.shared._cache.get(dataWithKey: urlRequest.cacheKey, completionHandler: { (data, error) in
+        let fetchCompletionHandler: Poly.CompletionHandler = {(data, error) in
             if let data = data {
                 DispatchQueue.main.async {
                     completionHandler?(data, nil)
                 }
             } else {
                 NetworkActivityIndicatorManager.shared.incrementActivityCount()
-
+                
                 // Note: downloading directly to disk may be desired
                 // let destination: DownloadRequest.DownloadFileDestination = { _, _ in
                 //     let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -97,7 +122,29 @@ extension PolyRequest {
                         }
                 }
             }
-        })
+        }
+        
+        switch cachePolicy {
+        case .fetchIgnoringCacheData:
+            fetchCompletionHandler(nil, nil)
+            break
+        case .returnCacheDataDontFetch:
+            Poly.shared._cache.get(dataWithKey: urlRequest.cacheKey) { (data, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        completionHandler?(data, nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completionHandler?(nil, PolyError.invalid)
+                    }
+                }
+            }
+            break
+        case .returnCacheDataElseFetch:
+            Poly.shared._cache.get(dataWithKey: urlRequest.cacheKey, completionHandler: fetchCompletionHandler)
+            break
+        }
     }
     
     public func cancel() {
