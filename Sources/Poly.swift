@@ -236,6 +236,7 @@ extension Poly {
     public typealias CompletionHandler = (_ data: Data?, _ error: Error?) -> Void
     
     public typealias AssetsCompletionHandler = (_ assets: [PolyAssetModel]?, _ totalAssetCount: Int, _ nextPage: Int, _ error: Error?) -> Void
+    public typealias DownloadCompletionHandler = (_ rootFile: String?, _ resourceFiles: [String]?, _ error: Error?) -> Void
     
     /// Returns detailed information about an asset given its name.
     public func get(assetWithIdentifier assetIdentifier: String,
@@ -338,10 +339,44 @@ extension Poly {
         self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
     }
     
-    public func download(filesWithUrls urlStrings: [String],
-                         cachePolicy: PolyCachePolicy = .returnCacheDataElseFetch,
+    /// Downloads the specified asset.
+    ///
+    /// - Parameters:
+    ///   - asset: Poly asset to download
+    ///   - cachePolicy: Cache policy
+    ///   - progressHandler: Handler for progress updates
+    ///   - completionHandler: Handler for task completion
+    public func download(asset: PolyAssetModel,
+                         cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
-                         completionHandler: CompletionHandler? = nil) {
+                         completionHandler: DownloadCompletionHandler? = nil) {
+        var fileUrls: [String] = []
+        if let formats = asset.formats?.first {
+            if let rootUrl = formats.root?.url {
+                fileUrls.append(rootUrl)
+            }
+            if let resources = formats.resources {
+                for resource in resources {
+                    if let resourceUrl = resource.url {
+                        fileUrls.append(resourceUrl)
+                    }
+                }
+            }
+        }
+
+        if fileUrls.count == 0 {
+            DispatchQueue.main.async {
+                completionHandler?(nil, nil, PolyError.invalid)
+            }
+        } else {
+            self.download(filesWithUrls: fileUrls, cachePolicy: cachePolicy, progressHandler: progressHandler, completionHandler: completionHandler)
+        }
+    }
+    
+    public func download(filesWithUrls urlStrings: [String],
+                            cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
+                            progressHandler: ProgressHandler? = nil,
+                            completionHandler: DownloadCompletionHandler? = nil) {
         
 //        request.fetch(dataWithUrl: urlRequest) { (data, error) in
 //            if let error = error {
