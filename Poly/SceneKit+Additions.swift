@@ -30,7 +30,7 @@ import ModelIO
 
 extension SCNNode {
     
-    public class func createNode(withLocalUrl localUrl: URL, scale: Float = 0.15) -> SCNNode? {
+    public class func createNode(withLocalUrl localUrl: URL, scale: Float = 0.15) -> SCNNode {
         let mdlAsset = MDLAsset(url: localUrl)
         mdlAsset.loadTextures()
         
