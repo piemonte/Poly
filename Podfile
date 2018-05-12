@@ -16,6 +16,7 @@ def shared_pods
   pod 'Cache', '4.2.0'
   pod 'ObjectMapper', '3.1.0'
   pod 'PromiseKit', '6.2.5'
+  pod 'Disk', '0.3.3'
 end
 
 target 'Poly' do

@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.dependency 'Cache', '4.2.0'
   s.dependency 'ObjectMapper', '3.1.0'
   s.dependency 'PromiseKit', '6.2.5'
+  s.dependency 'Disk', '0.3.3'
 end
