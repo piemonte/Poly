@@ -28,6 +28,7 @@ import Alamofire
 import AlamofireNetworkActivityIndicator
 import ObjectMapper
 import PromiseKit
+import Disk
 
 internal let GooglePolyHostname = "poly.googleapis.com"
 internal let GooglePolyBaseUrl = "https://" + GooglePolyHostname
@@ -351,46 +352,101 @@ extension Poly {
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
                          completionHandler: DownloadCompletionHandler? = nil) {
-        var fileUrls: [String] = []
+        var rootFile: String? = nil
+        var resourceFiles: [String]? = nil
+        
         if let formats = asset.formats?.first {
             if let rootUrl = formats.root?.url {
-                fileUrls.append(rootUrl)
+                rootFile = rootUrl
             }
             if let resources = formats.resources {
                 for resource in resources {
                     if let resourceUrl = resource.url {
-                        fileUrls.append(resourceUrl)
+                        if resourceFiles == nil {
+                            resourceFiles = []
+                        }
+                        resourceFiles?.append(resourceUrl)
                     }
                 }
             }
         }
 
-        if fileUrls.count == 0 {
+        if let rootFile = rootFile {
+            var rootPath: String? = nil
+            var resourcePaths: [String]? = nil
+            var totalFileCount = 1 + (resourceFiles?.count ?? 0)
+            
+            Poly.download(fileWithUrl: rootFile, cachePolicy: cachePolicy, progressHandler: { (progress) in
+                // TODO: setup total progress using totalFileCount
+            }).then({ (data) -> Promise<String> in
+                // move the root file into the local cache
+                return Poly.writeFileToDisk(data: data)
+            }).then({ (path) -> Promise<[String]?> in
+                rootPath = path
+                if let resourceFiles = resourceFiles {
+                                        
+                    // TODO: download and move resources
+//                    return Poly.download(fileWithUrl: resourcePath, cachePolicy: cachePolicy, progressHandler: { (progress) in
+//                        // TODO: setup total progress
+//                    })
+                    return Promise { seal in seal.fulfill(nil)}
+                    
+                    
+                } else {
+                    return Promise { seal in seal.fulfill(nil)}
+                }
+            }).done({ paths in
+                resourcePaths = paths
+                DispatchQueue.main.async {
+                    completionHandler?(rootPath, resourcePaths, nil)
+                }
+            }).catch { (error) in
+                DispatchQueue.main.async {
+                    completionHandler?(nil, nil, error)
+                }
+            }
+            
+        } else {
             DispatchQueue.main.async {
                 completionHandler?(nil, nil, PolyError.invalid)
             }
-        } else {
-            self.download(filesWithUrls: fileUrls, cachePolicy: cachePolicy, progressHandler: progressHandler, completionHandler: completionHandler)
+        }
+    }
+}
+
+// MARK: - internal request support
+
+extension Poly {
+    
+    static internal func writeFileToDisk(data: Data) -> Promise<String> {
+        return Promise { seal in
+            seal.fulfill("Test")
         }
     }
     
-    public func download(filesWithUrls urlStrings: [String],
-                            cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
-                            progressHandler: ProgressHandler? = nil,
-                            completionHandler: DownloadCompletionHandler? = nil) {
-        
-//        request.fetch(dataWithUrl: urlRequest) { (data, error) in
-//            if let error = error {
-//                DispatchQueue.main.async {
-//                    completionHandler?(nil, error)
-//                }
-//            } else {
-//                DispatchQueue.main.async {
-//                    completionHandler?(data, nil)
-//                }
-//            }
-//        }
-
+    static internal func download(fileWithUrl urlString: String,
+                                  cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
+                                  progressHandler: ProgressHandler? = nil) -> Promise<Data> {
+        return Promise { seal in
+            if let urlRequest = URL(string: urlString) {
+                let request = PolyRequest()
+                request.fetch(dataWithUrl: urlRequest, cachePolicy: cachePolicy, progressHandler: progressHandler) { (data, error) in
+                    if let error = error {
+                        DispatchQueue.main.async {
+                            seal.reject(error)
+                        }
+                    } else if let data = data {
+                        DispatchQueue.main.async {
+                            seal.fulfill(data)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            seal.reject(PolyError.unknown)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     internal func request(withUrlString urlString: String, parameters: [String: Any]? = nil, completionHandler: CompletionHandler? = nil) {
