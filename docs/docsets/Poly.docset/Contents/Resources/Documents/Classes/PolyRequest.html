@@ -14,7 +14,7 @@
     <a title="PolyRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Poly Docs</a> (31% documented)</p>
+        <p><a href="../index.html">Poly Docs</a> (33% documented)</p>
         <p class="header-right"><a href="http://github.com/piemonte/Poly"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -52,6 +52,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/PolyRequest.html">PolyRequest</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PolyRequest/CachePolicy.html">– CachePolicy</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -65,9 +68,6 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/PolyCachePolicy.html">PolyCachePolicy</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Enums/PolyComplexity.html">PolyComplexity</a>
               </li>
@@ -111,6 +111,45 @@
           <section class="section task-group-section">
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/types"></a>
+                <a name="//apple_ref/swift/Section/types" class="dashAnchor"></a>
+                <a href="#/types">
+                  <h3 class="section-name">types</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Poly0A7RequestC11CachePolicyO"></a>
+                    <a name="//apple_ref/swift/Enum/CachePolicy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Poly0A7RequestC11CachePolicyO">CachePolicy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Poly cache policies</p>
+
+                        <a href="../Classes/PolyRequest/CachePolicy.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CachePolicy</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/fetch"></a>
                 <a name="//apple_ref/swift/Section/fetch" class="dashAnchor"></a>
                 <a href="#/fetch">
@@ -148,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:4Poly0A7RequestC5fetchy10Foundation3URLV11dataWithUrl_ySfcSg15progressHandleryAE4DataVSg_s5Error_pSgtcSg010completionJ0tF"></a>
-                    <a name="//apple_ref/swift/Method/fetch(dataWithUrl:progressHandler:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4Poly0A7RequestC5fetchy10Foundation3URLV11dataWithUrl_ySfcSg15progressHandleryAE4DataVSg_s5Error_pSgtcSg010completionJ0tF">fetch(dataWithUrl:progressHandler:completionHandler:)</a>
+                    <a name="/s:4Poly0A7RequestC5fetchy10Foundation3URLV11dataWithUrl_AC11CachePolicyO05cacheJ0ySfcSg15progressHandleryAE4DataVSg_s5Error_pSgtcSg010completionM0tF"></a>
+                    <a name="//apple_ref/swift/Method/fetch(dataWithUrl:cachePolicy:progressHandler:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Poly0A7RequestC5fetchy10Foundation3URLV11dataWithUrl_AC11CachePolicyO05cacheJ0ySfcSg15progressHandleryAE4DataVSg_s5Error_pSgtcSg010completionM0tF">fetch(dataWithUrl:cachePolicy:progressHandler:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -166,6 +205,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">dataWithUrl</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+                  <span class="nv">cachePolicy</span><span class="p">:</span> <span class="kt"><a href="../Classes/PolyRequest/CachePolicy.html">CachePolicy</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">returnCacheDataElseFetch</span><span class="p">,</span>
                   <span class="nv">progressHandler</span><span class="p">:</span> <span class="kt"><a href="../Classes/Poly.html">Poly</a></span><span class="o">.</span><span class="kt">ProgressHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                   <span class="nv">completionHandler</span><span class="p">:</span> <span class="kt"><a href="../Classes/Poly.html">Poly</a></span><span class="o">.</span><span class="kt">CompletionHandler</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
@@ -206,7 +246,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://patrickpiemonte.com/" target="_blank" rel="external">Patrick Piemonte</a>. All rights reserved. (Last updated: 2018-05-10)</p>
+          <p>&copy; 2018 <a class="link" href="http://patrickpiemonte.com/" target="_blank" rel="external">Patrick Piemonte</a>. All rights reserved. (Last updated: 2018-05-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
