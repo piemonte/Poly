@@ -238,7 +238,6 @@ extension Poly {
     public typealias CompletionHandler = (_ data: Data?, _ error: Error?) -> Void
     
     public typealias AssetsCompletionHandler = (_ assets: [PolyAssetModel]?, _ totalAssetCount: Int, _ nextPage: Int, _ error: Error?) -> Void
-    public typealias DownloadCompletionHandler = (_ rootFile: String?, _ resourceFiles: [String]?, _ error: Error?) -> Void
     
     /// Returns detailed information about an asset given its name.
     public func get(assetWithIdentifier assetIdentifier: String,
@@ -340,8 +339,43 @@ extension Poly {
         
         self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
     }
+}
+
+// MARK: - Download requests
+
+extension Poly {
+
+    // MARK: - completion types
     
-    /// Downloads the specified asset.
+    public typealias DownloadCompletionHandler = (_ rootFile: String?, _ resourceFiles: [String]?, _ error: Error?) -> Void
+    
+    /// Downloads the specified asset by identifier.
+    ///
+    /// - Parameters:
+    ///   - assetIdentifier: Asset identifier
+    ///   - cachePolicy: Cache policy
+    ///   - progressHandler: Handler for progress updates
+    ///   - completionHandler: Handler for task completion
+    public func download(assetWithIdentifier assetIdentifier: String,
+                         cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
+                         progressHandler: ProgressHandler? = nil,
+                         completionHandler: DownloadCompletionHandler? = nil) {
+        self.get(assetWithIdentifier: assetIdentifier) { (assetModels, totalCount, nextPage, error) in
+            if let assetModels = assetModels,
+                let model = assetModels.first {
+                self.download(asset: model,
+                              cachePolicy: cachePolicy,
+                              progressHandler: progressHandler,
+                              completionHandler: completionHandler)
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler?(nil, nil, PolyError.invalid)
+                }
+            }
+        }
+    }
+    
+    /// Downloads the specified asset by model.
     ///
     /// - Parameters:
     ///   - asset: Poly asset to download
@@ -375,7 +409,7 @@ extension Poly {
             var rootPath: String? = nil
             var resourcePaths: [String]? = nil
             var totalFileCount = 1 + (resourceFiles?.count ?? 0)
-            
+        
             Poly.download(fileWithUrl: rootFile, cachePolicy: cachePolicy, progressHandler: { (progress) in
                 // TODO: setup total progress using totalFileCount
             }).then({ (data) -> Promise<String> in
