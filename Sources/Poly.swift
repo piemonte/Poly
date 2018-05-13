@@ -415,7 +415,7 @@ extension Poly {
                 // TODO: setup total progress using totalFileCount
             }).then({ (url) -> Promise<[URL]> in
                 rootPath = url
-                
+
                 var promises: [Promise<URL>] = []
                 if let resourceFiles = resourceFiles {
                     for resourceFile in resourceFiles {
@@ -425,10 +425,13 @@ extension Poly {
                         promises.append(promise)
                     }
                 }
+                // Note: when will fulfill even if resourceFiles is an empty set
                 return when(fulfilled: promises)
-                
+
             }).done({ (urls) in
-                resourcePaths = urls
+                if let _ = resourceFiles {
+                    resourcePaths = urls
+                }
                 DispatchQueue.main.async {
                     completionHandler?(rootPath, resourcePaths, nil)
                 }
