@@ -83,24 +83,14 @@ public class ViewController: UIViewController {
         // Poly
         
         Poly.shared.apiKey = "REPLACE_WITH_API_KEY"
-
-        Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (assets, count, page, error) in
-            if let assets = assets,
-                let assetModel = assets.first {
-                Poly.shared.download(asset: assetModel, progressHandler: { (progress) in
-                }) { (rootFilePath, resourceFilePaths, error) in
-                    if let rootFilePath = rootFilePath,
-                        let rootUrl = URL(string: rootFilePath) {
-                        let node = SCNNode.createNode(withLocalUrl: rootUrl)
-                        self._arView?.scene.rootNode.addChildNode(node)
-                    }
-                }
+        
+        Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (progress) in
+        }) { (rootFileUrl, resourceFileUrls, error) in
+            if let rootFileUrl = rootFileUrl {
+                let node = SCNNode.createNode(withLocalUrl: rootFileUrl)
+                self._arView?.scene.rootNode.addChildNode(node)
             }
         }
-        
-//        Poly.shared.download(asset: "10u8FYPC5Br", progressHandler: { (progress) in
-//        }) { (rootFilePath, resourceFilePaths, error) in
-//        }
 
     }
     
