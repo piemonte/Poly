@@ -407,16 +407,28 @@ extension Poly {
 
         if let rootFile = rootFile {
             
-            let bgq = DispatchQueue.global(qos: .userInitiated)
-            
             var rootPath: URL? = nil
             var resourcePaths: [URL]? = nil
             var totalFileCount = 1 + (resourceFiles?.count ?? 0)
         
             Poly.download(fileWithUrl: rootFile, cachePolicy: cachePolicy, progressHandler: { (progress) in
                 // TODO: setup total progress using totalFileCount
-            }).done({ (url) in
+            }).then({ (url) -> Promise<[URL]> in
                 rootPath = url
+                
+                var promises: [Promise<URL>] = []
+                if let resourceFiles = resourceFiles {
+                    for resourceFile in resourceFiles {
+                        let promise = Poly.download(fileWithUrl: resourceFile, cachePolicy: cachePolicy, progressHandler: { (progress) in
+                            // TODO: setup total progress using totalFileCount
+                        })
+                        promises.append(promise)
+                    }
+                }
+                return when(fulfilled: promises)
+                
+            }).done({ (urls) in
+                resourcePaths = urls
                 DispatchQueue.main.async {
                     completionHandler?(rootPath, resourcePaths, nil)
                 }
@@ -440,7 +452,7 @@ extension Poly {
     
     static internal func download(fileWithUrl urlString: String,
                                   cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
-                                  progressHandler: ProgressHandler? = nil) -> Promise<URL?> {
+                                  progressHandler: ProgressHandler? = nil) -> Promise<URL> {
         return Promise { seal in
             if let urlRequest = URL(string: urlString) {
                 let request = PolyRequest()
