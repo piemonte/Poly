@@ -186,7 +186,13 @@
 </code></pre>
 
 <p>Download a 3D asset and it&rsquo;s resources for rendering.</p>
-<pre class="highlight swift"><code><span class="c1">// TODO: example of downloading a 3D asset itself</span>
+<pre class="highlight swift"><code><span class="kt">Poly</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">assetWithIdentifier</span><span class="p">:</span> <span class="s">"10u8FYPC5Br"</span><span class="p">,</span> <span class="nv">progressHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">progress</span><span class="p">)</span> <span class="k">in</span>
+<span class="p">})</span> <span class="p">{</span> <span class="p">(</span><span class="n">rootFileUrl</span><span class="p">,</span> <span class="n">resourceFileUrls</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">rootFileUrl</span> <span class="o">=</span> <span class="n">rootFileUrl</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">node</span> <span class="o">=</span> <span class="kt">SCNNode</span><span class="o">.</span><span class="nf">createNode</span><span class="p">(</span><span class="nv">withLocalUrl</span><span class="p">:</span> <span class="n">rootFileUrl</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">_arView</span><span class="p">?</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">rootNode</span><span class="o">.</span><span class="nf">addChildNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 <p>The API allow private object loading but those endpoints need to be added. Auth support is available via the <code>authToken</code> property.</p>
