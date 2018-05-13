@@ -347,7 +347,7 @@ extension Poly {
 
     // MARK: - completion types
     
-    public typealias DownloadCompletionHandler = (_ rootFile: String?, _ resourceFiles: [String]?, _ error: Error?) -> Void
+    public typealias DownloadCompletionHandler = (_ rootFile: URL?, _ resourceFiles: [URL]?, _ error: Error?) -> Void
     
     /// Downloads the specified asset by identifier.
     ///
@@ -406,39 +406,25 @@ extension Poly {
         }
 
         if let rootFile = rootFile {
-            var rootPath: String? = nil
-            var resourcePaths: [String]? = nil
+            
+            let bgq = DispatchQueue.global(qos: .userInitiated)
+            
+            var rootPath: URL? = nil
+            var resourcePaths: [URL]? = nil
             var totalFileCount = 1 + (resourceFiles?.count ?? 0)
         
             Poly.download(fileWithUrl: rootFile, cachePolicy: cachePolicy, progressHandler: { (progress) in
                 // TODO: setup total progress using totalFileCount
-            }).then({ (data) -> Promise<String> in
-                // move the root file into the local cache
-                return Poly.writeFileToDisk(data: data)
-            }).then({ (path) -> Promise<[String]?> in
-                rootPath = path
-                if let resourceFiles = resourceFiles {
-                                        
-                    // TODO: download and move resources
-//                    return Poly.download(fileWithUrl: resourcePath, cachePolicy: cachePolicy, progressHandler: { (progress) in
-//                        // TODO: setup total progress
-//                    })
-                    return Promise { seal in seal.fulfill(nil)}
-                    
-                    
-                } else {
-                    return Promise { seal in seal.fulfill(nil)}
-                }
-            }).done({ paths in
-                resourcePaths = paths
+            }).done({ (url) in
+                rootPath = url
                 DispatchQueue.main.async {
                     completionHandler?(rootPath, resourcePaths, nil)
                 }
-            }).catch { (error) in
+            }).catch({ (error) in
                 DispatchQueue.main.async {
                     completionHandler?(nil, nil, error)
                 }
-            }
+            })
             
         } else {
             DispatchQueue.main.async {
@@ -452,31 +438,26 @@ extension Poly {
 
 extension Poly {
     
-    static internal func writeFileToDisk(data: Data) -> Promise<String> {
-        return Promise { seal in
-            seal.fulfill("Test")
-        }
-    }
-    
     static internal func download(fileWithUrl urlString: String,
                                   cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
-                                  progressHandler: ProgressHandler? = nil) -> Promise<Data> {
+                                  progressHandler: ProgressHandler? = nil) -> Promise<URL?> {
         return Promise { seal in
             if let urlRequest = URL(string: urlString) {
                 let request = PolyRequest()
                 request.fetch(dataWithUrl: urlRequest, cachePolicy: cachePolicy, progressHandler: progressHandler) { (data, error) in
                     if let error = error {
-                        DispatchQueue.main.async {
+                        seal.reject(error)
+                    } else if let data = data {
+                        do {
+                            let filename = urlRequest.lastPathComponent
+                            try Disk.save(data, to: .caches, as: filename)
+                            let fileUrl = try Disk.getURL(for: filename, in: .caches)
+                            seal.fulfill(fileUrl)
+                        } catch let error {
                             seal.reject(error)
                         }
-                    } else if let data = data {
-                        DispatchQueue.main.async {
-                            seal.fulfill(data)
-                        }
                     } else {
-                        DispatchQueue.main.async {
-                            seal.reject(PolyError.unknown)
-                        }
+                        seal.reject(PolyError.unknown)
                     }
                 }
             }
