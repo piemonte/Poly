@@ -84,7 +84,13 @@ Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (data, error) in
 Download a 3D asset and it's resources for rendering.
 
 ```swift
-// TODO: example of downloading a 3D asset itself
+Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (progress) in
+}) { (rootFileUrl, resourceFileUrls, error) in
+    if let rootFileUrl = rootFileUrl {
+        let node = SCNNode.createNode(withLocalUrl: rootFileUrl)
+        self._arView?.scene.rootNode.addChildNode(node)
+    }
+}
 ```
 
 The API allow private object loading but those endpoints need to be added. Auth support is available via the `authToken` property.
