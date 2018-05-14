@@ -6,8 +6,9 @@ env:
   - LANG=en_US.UTF-8
   - IOS_SDK=iphonesimulator11.1
 before_install:
-  - brew install cocoapods --pre --repo-update --no-rdoc --no-ri --no-document --quiet
+  - gem install cocoapods
+  - gem install xcpretty -N
+  - brew update
 script:
   - xcodebuild -showsdks
   - xcodebuild -workspace Poly.xcworkspace -scheme 'Debug' -sdk $IOS_SDK build analyze
-
