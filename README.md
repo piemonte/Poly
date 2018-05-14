@@ -9,7 +9,7 @@ This library makes it easy to integrate with Google Poly while providing a few a
 |  | Features |
 |:---------:|:---------------------------------------------------------------|
 | &#128269;  | 3D model search  |
-| &#57907;  | 3D model download management |
+| &#11015;  | 3D model download management |
 | &#128230; | advanced 3D data caching |
 | &#128225; | Poly reachability support |
 | &#128038; | [Swift 4](https://developer.apple.com/swift/) |
