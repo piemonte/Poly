@@ -13,7 +13,7 @@ This library makes it easy to integrate with Google Poly while providing a few a
 | &#128225; | Poly reachability support |
 | &#128038; | [Swift 4](https://developer.apple.com/swift/) |
 
-## Important Information
+## Important!
 
 Before you begin, ensure that you have read Google’s Poly [documentation](https://developers.google.com/poly/develop/), understand best practices for attribution, and have generated your API key.
 
@@ -81,7 +81,7 @@ Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (data, error) in
 }
 ```
 
-Download a 3D asset and it's resources for rendering.
+Download a 3D asset and it's resources for rendering, either using the asset identifier or the asset model object itself.
 
 ```swift
 Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (progress) in
