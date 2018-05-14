@@ -13,7 +13,7 @@ This library makes it easy to integrate with Google Poly while providing a few a
 | &#128225; | Poly reachability support |
 | &#128038; | [Swift 4](https://developer.apple.com/swift/) |
 
-## Important!
+## Important
 
 Before you begin, ensure that you have read Google’s Poly [documentation](https://developers.google.com/poly/develop/), understand best practices for attribution, and have generated your API key.
 
