@@ -44,6 +44,8 @@ Alternatively, drop the [source files](https://github.com/piemonte/Poly/tree/mas
 
 ## Examples
 
+The sample project provides several examples aside from the documentation and readme.
+
 Import the library.
 
 ```swift
@@ -94,7 +96,7 @@ Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (pro
 }
 ```
 
-The API allow private object loading but those endpoints need to be added. Auth support is available via the `authToken` property.
+The API also provides private object loading but additional endpoints may need to be added. Auth support is setup and available via the `authToken` property.
 
 ## Documentation
 
