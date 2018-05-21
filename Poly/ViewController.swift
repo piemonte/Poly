@@ -80,7 +80,7 @@ public class ViewController: UIViewController {
             self._arView?.addGestureRecognizer(tapGestureRecognizer)
         }
         
-        // Poly (api key was setup in the AppDelegate
+        // Poly (api key was setup in the AppDelegate)
         
         // Poly example for searching 3D models
         Poly.shared.list(assetsWithKeywords: ["fox"]) { (assets, total, next, error) in
