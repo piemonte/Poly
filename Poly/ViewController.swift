@@ -80,10 +80,18 @@ public class ViewController: UIViewController {
             self._arView?.addGestureRecognizer(tapGestureRecognizer)
         }
         
-        // Poly
+        // Poly (api key was setup in the AppDelegate
         
-        Poly.shared.apiKey = "REPLACE_WITH_API_KEY"
+        // Poly example for searching 3D models
+        Poly.shared.list(assetsWithKeywords: ["fox"]) { (assets, total, next, error) in
+            if let assets = assets {
+                for asset in assets {
+                    print("asset \(asset.displayName?.description) identifier \(asset.identifier.description)")
+                }
+            }
+        }
         
+        // Poly example for downloading a 3D model
         Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (progress) in
         }) { (rootFileUrl, resourceFileUrls, error) in
             if let rootFileUrl = rootFileUrl {

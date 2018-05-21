@@ -35,10 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // setup Poly
-//      Poly.shared.apiKey = "1234"
+        // Poly setup
+        Poly.shared.apiKey = "REPLACE_WITH_API_KEY"
         let _ = Poly.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
+        // root view controller setup
         self.window = UIWindow(frame:UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.black
         
