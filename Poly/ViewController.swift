@@ -86,13 +86,25 @@ public class ViewController: UIViewController {
         Poly.shared.list(assetsWithKeywords: ["fox"]) { (assets, total, next, error) in
             if let assets = assets {
                 for asset in assets {
-                    print("asset \(asset.displayName?.description) identifier \(asset.identifier.description)")
+                    print("asset \(asset.displayName?.description ?? "") identifier \(asset.identifier.description)")
                 }
             }
         }
         
+        // Poly example for requesting asset info
+        let piemonteModelIdentifier = "27Sq9gQjzO1"
+
+        Poly.shared.get(assetWithIdentifier: piemonteModelIdentifier) { (assets, total, next, error) in
+            if let assets = assets,
+                let asset = assets.first {
+                print("asset \(asset.displayName)")
+            }
+        }
+                
         // Poly example for downloading a 3D model
-        Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (progress) in
+        let foxModelIdentifier = "10u8FYPC5Br"
+        
+        Poly.shared.download(assetWithIdentifier: foxModelIdentifier, progressHandler: { (progress) in
         }) { (rootFileUrl, resourceFileUrls, error) in
             if let rootFileUrl = rootFileUrl {
                 let node = SCNNode.createNode(withLocalUrl: rootFileUrl)
