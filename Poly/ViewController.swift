@@ -77,6 +77,7 @@ public class ViewController: UIViewController {
         self._tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_ :)))
         if let tapGestureRecognizer = self._tapGestureRecognizer {
             tapGestureRecognizer.numberOfTapsRequired = 1
+            self._arView?.isUserInteractionEnabled = true
             self._arView?.addGestureRecognizer(tapGestureRecognizer)
         }
         
@@ -97,7 +98,8 @@ public class ViewController: UIViewController {
         Poly.shared.get(assetWithIdentifier: piemonteModelIdentifier) { (assets, total, next, error) in
             if let assets = assets,
                 let asset = assets.first {
-                print("asset \(asset.displayName?.description ?? "")")
+                print("asset name \(asset.displayName?.description ?? "")")
+                print("asset thumbnail image url \(asset.thumbnail?.url  ?? "")")
             }
         }
                 
