@@ -97,7 +97,7 @@ public class ViewController: UIViewController {
         Poly.shared.get(assetWithIdentifier: piemonteModelIdentifier) { (assets, total, next, error) in
             if let assets = assets,
                 let asset = assets.first {
-                print("asset \(asset.displayName)")
+                print("asset \(asset.displayName?.description ?? "")")
             }
         }
                 
