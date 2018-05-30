@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.7.2)
-  - AlamofireNetworkActivityIndicator (2.2.0):
-    - Alamofire (~> 4.5)
+  - AlamofireNetworkActivityIndicator (2.2.1):
+    - Alamofire (~> 4.7)
   - Cache (4.2.0)
   - Disk (0.3.3)
   - IGListKit (3.4.0):
@@ -9,25 +9,25 @@ PODS:
   - IGListKit/Default (3.4.0):
     - IGListKit/Diffing
   - IGListKit/Diffing (3.4.0)
-  - ObjectMapper (3.1.0)
-  - PromiseKit (6.2.5):
-    - PromiseKit/CorePromise (= 6.2.5)
-    - PromiseKit/Foundation (= 6.2.5)
-    - PromiseKit/UIKit (= 6.2.5)
-  - PromiseKit/CorePromise (6.2.5)
-  - PromiseKit/Foundation (6.2.5):
+  - ObjectMapper (3.2.0)
+  - PromiseKit (6.2.8):
+    - PromiseKit/CorePromise (= 6.2.8)
+    - PromiseKit/Foundation (= 6.2.8)
+    - PromiseKit/UIKit (= 6.2.8)
+  - PromiseKit/CorePromise (6.2.8)
+  - PromiseKit/Foundation (6.2.8):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.2.5):
+  - PromiseKit/UIKit (6.2.8):
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
-  - Alamofire (= 4.7.2)
-  - AlamofireNetworkActivityIndicator (= 2.2.0)
-  - Cache (= 4.2.0)
-  - Disk (= 0.3.3)
+  - Alamofire (~> 4.7)
+  - AlamofireNetworkActivityIndicator (~> 2.2)
+  - Cache (~> 4.2)
+  - Disk (~> 0.3)
   - IGListKit (= 3.4.0)
-  - ObjectMapper (= 3.1.0)
-  - PromiseKit (= 6.2.5)
+  - ObjectMapper (~> 3.1)
+  - PromiseKit (~> 6.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -41,13 +41,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
+  AlamofireNetworkActivityIndicator: aeac50e6ecb78ec71a5f1f29098bcf4ec2962910
   Cache: f28f8dd64b632155aabf9b3906b036a659048251
   Disk: d1f55cd61f6ca20f368232d0c6e37e3c3dfcb63e
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
-  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
+  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
 
-PODFILE CHECKSUM: ffc3a38d7c0293da4d5fdbe09bf0f31897052ff8
+PODFILE CHECKSUM: 4a12656a5f300f5721bfd6208dffbb7aa5c6035f
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

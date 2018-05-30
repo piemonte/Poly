@@ -11,12 +11,12 @@ swift_version = '4.0'
 use_frameworks!
 
 def shared_pods
-  pod 'Alamofire', '4.7.2'
-  pod 'AlamofireNetworkActivityIndicator', '2.2.0'
-  pod 'Cache', '4.2.0'
-  pod 'ObjectMapper', '3.1.0'
-  pod 'PromiseKit', '6.2.5'
-  pod 'Disk', '0.3.3'
+  pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+  pod 'Cache', '~> 4.2'
+  pod 'ObjectMapper', '~> 3.1'
+  pod 'PromiseKit', '~> 6.2'
+  pod 'Disk', '~> 0.3'
 end
 
 target 'Poly' do
