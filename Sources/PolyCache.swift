@@ -32,8 +32,8 @@ public class PolyCache: NSObject {
     
     // MARK: - ivars
     
-    internal var _storage: Storage?
-    internal var _expiry: Expiry = .date(Date().addingTimeInterval(3600 * 24 * 90))
+    internal var _storage: Storage<Data>?
+    internal var _diskExpiry: Expiry = .date(Date().addingTimeInterval(3600 * 24 * 90))
     
     // MARK: - object lifecycle
     
@@ -42,8 +42,9 @@ public class PolyCache: NSObject {
         let PolyaCacheName = "PolyCacheV1"
         let PolyCacheCacheMaxSizeBytes: UInt = 1024 * 1024 * 100
         
-        let diskConfig = DiskConfig(name: PolyaCacheName, expiry: self._expiry, maxSize: PolyCacheCacheMaxSizeBytes, directory: nil, protectionType: .completeUnlessOpen)
-        self._storage = try? Storage(diskConfig: diskConfig)
+        let diskConfig = DiskConfig(name: PolyaCacheName, expiry: self._diskExpiry, maxSize: PolyCacheCacheMaxSizeBytes, directory: nil, protectionType: .completeUnlessOpen)
+        let memoryConfig = MemoryConfig(expiry: .date(Date().addingTimeInterval(2*60)), countLimit: 2, totalCostLimit: 2)
+        self._storage = try? Storage(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: TransformerFactory.forCodable(ofType: Data.self))
     }
     
 }
@@ -51,7 +52,7 @@ public class PolyCache: NSObject {
 extension PolyCache {
     
     public func get(dataWithKey key: String, completionHandler: Poly.CompletionHandler? = nil) {
-        self._storage?.async.object(ofType: Data.self, forKey: key) { result in
+        self._storage?.async.object(forKey: key, completion: { (result) in
             switch result {
             case .value(let data):
                 completionHandler?(data, nil)
@@ -60,7 +61,7 @@ extension PolyCache {
                 completionHandler?(nil, error)
                 break
             }
-        }
+        })
     }
     
     public func set(dataWithUrl fileUrl: URL, key: String, completionHandler: Poly.CompletionHandler? = nil) {
@@ -74,7 +75,7 @@ extension PolyCache {
     }
     
     public func set(data: Data, key: String, completionHandler: Poly.CompletionHandler? = nil) {
-        self._storage?.async.setObject(data, forKey: key, expiry: self._expiry, completion: { (result) in
+        self._storage?.async.setObject(data, forKey: key, expiry: self._diskExpiry, completion: { (result) in
             switch result {
             case .value(_):
                 completionHandler?(nil, nil)
