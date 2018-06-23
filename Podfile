@@ -14,7 +14,7 @@ def shared_pods
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
   pod 'Cache', '~> 5.0'
-  pod 'ObjectMapper', '~> 3.1'
+  pod 'ObjectMapper', '~> 3.3'
   pod 'PromiseKit', '~> 6.3'
   pod 'Disk', '~> 0.3'
 end

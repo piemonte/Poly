@@ -26,7 +26,7 @@ DEPENDENCIES:
   - Cache (~> 5.0)
   - Disk (~> 0.3)
   - IGListKit (= 3.4.0)
-  - ObjectMapper (~> 3.1)
+  - ObjectMapper (~> 3.3)
   - PromiseKit (~> 6.3)
 
 SPEC REPOS:
@@ -48,6 +48,6 @@ SPEC CHECKSUMS:
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PromiseKit: e168626994ae29c38b51252a8d1b0a561fd3f2c7
 
-PODFILE CHECKSUM: 3f1b0939f23ad78bd850da1527e6ef572c1cc917
+PODFILE CHECKSUM: 44045c40a4cc4b4e9c4c3336baf73e9d62f6368e
 
 COCOAPODS: 1.5.3

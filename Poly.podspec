@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 4.7'
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.2'
   s.dependency 'Cache', '~> 5.0'
-  s.dependency 'ObjectMapper', '~> 3.1'
+  s.dependency 'ObjectMapper', '~> 3.3'
   s.dependency 'PromiseKit', '~> 6.3'
   s.dependency 'Disk', '~> 0.3'
 end
