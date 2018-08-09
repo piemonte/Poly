@@ -20,15 +20,19 @@ Before you begin, ensure that you have read Google’s Poly [documentation](http
 
 ## Quick Start
 
+The sample project provides several examples for integration.
+
+You can install the dependencies with the command `pod install` or by running the makefile commands `make setup && make pods`.
+
 ```ruby
 
 # CocoaPods
 
-pod "Poly", "~> 0.0.1"
+pod "Poly", "~> 0.0.4"
 
 # Carthage
 
-github "piemonte/Poly" ~> 0.0.1
+github "piemonte/Poly" ~> 0.0.4
 
 # Swift PM
 
@@ -43,8 +47,6 @@ let package = Package(
 Alternatively, drop the [source files](https://github.com/piemonte/Poly/tree/master/Sources) into your Xcode project.
 
 ## Examples
-
-The sample project provides several examples aside from the documentation and readme.
 
 Import the library.
 
