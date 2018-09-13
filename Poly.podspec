@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Poly'
-  s.version  = '0.5.6'
+  s.version  = '0.6.0'
   s.license  = 'MIT'
   s.summary  = 'Unofficial Google Poly SDK'
   s.authors  = { "patrick piemonte" => "patrick.piemonte@gmail.com" }
