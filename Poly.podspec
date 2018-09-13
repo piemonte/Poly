@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.source_files = 'Sources/*.swift'
   s.requires_arc = true
-  s.swift_version = '4.2'
+  s.swift_version = '4.0'
   s.dependency 'Alamofire', '~> 4.7'
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.2'
   s.dependency 'PromiseKit', '~> 6.4'
