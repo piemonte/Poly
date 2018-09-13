@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Poly'
-  s.version  = '0.6.0'
+  s.version  = '0.0.6'
   s.license  = 'MIT'
   s.summary  = 'Unofficial Google Poly SDK'
   s.authors  = { "patrick piemonte" => "patrick.piemonte@gmail.com" }
@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 4.7'
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.2'
   s.dependency 'PromiseKit', '~> 6.4'
-  s.dependency 'Disk', '~> 0.4'
   s.dependency 'Cache', '~> 5.1'
   s.dependency 'Disk', '~> 0.4'
   s.dependency 'ObjectMapper', '~> 3.3'
