@@ -23,7 +23,6 @@
 		069CF84120A27EDE00D69DE9 /* PolyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C995AF20A1ED3A00D5F886 /* PolyAssetModel.swift */; };
 		069D60721EA90D7900D18F59 /* PolyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D60711EA90D7900D18F59 /* PolyCache.swift */; };
 		069D60731EA90D7900D18F59 /* PolyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D60711EA90D7900D18F59 /* PolyCache.swift */; };
-		06AC206220A0FFFA00D37921 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06DE65AF1E18E3BE00C064DE /* Info.plist */; };
 		06AC206720A1006F00D37921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AC206620A1006F00D37921 /* LaunchScreen.storyboard */; };
 		06C995B020A1ED3A00D5F886 /* PolyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C995AF20A1ED3A00D5F886 /* PolyAssetModel.swift */; };
 		06DE65A41E18E3BE00C064DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE65A31E18E3BE00C064DE /* AppDelegate.swift */; };
@@ -256,8 +255,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "Megasaki, Inc.";
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Patrick Piemonte";
 				TargetAttributes = {
 					066A17091E6F7CE600514A95 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -267,7 +266,7 @@
 					06DE659F1E18E3BE00C064DE = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = WPFGSL5BLN;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -303,7 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06AC206220A0FFFA00D37921 /* Info.plist in Resources */,
 				06AC206720A1006F00D37921 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +432,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickpiemonte.Poly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -457,7 +455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickpiemonte.Poly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -581,7 +579,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickpiemonte.Poly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -594,7 +592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickpiemonte.Poly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

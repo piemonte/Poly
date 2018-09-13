@@ -4,7 +4,7 @@
 
 This library makes it easy to integrate with Google Poly while providing a few additional client-side features.
 
-[![Build Status](https://travis-ci.org/piemonte/Poly.svg?branch=master)](https://travis-ci.org/piemonte/Poly) [![Pod Version](https://img.shields.io/cocoapods/v/Poly.svg?style=flat)](http://cocoadocs.org/docsets/Poly/) [![Swift Version](https://img.shields.io/badge/language-swift%204.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Poly/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/piemonte/Poly.svg?branch=master)](https://travis-ci.org/piemonte/Poly) [![Pod Version](https://img.shields.io/cocoapods/v/Poly.svg?style=flat)](http://cocoadocs.org/docsets/Poly/) [![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Poly/blob/master/LICENSE)
 
 |  | Features |
 |:---------:|:---------------------------------------------------------------|
@@ -13,6 +13,10 @@ This library makes it easy to integrate with Google Poly while providing a few a
 | &#128230; | advanced 3D data caching |
 | &#128225; | Poly reachability support |
 | &#128038; | [Swift 4](https://developer.apple.com/swift/) |
+
+Need a different version of Swift?
+* `4.2` - Target your Podfile to the latest release or master
+* `4.0` - Target your Podfile to the `swift4.0` branch
 
 ## Important
 
@@ -28,11 +32,11 @@ You can install the dependencies with the command `pod install` or by running th
 
 # CocoaPods
 
-pod "Poly", "~> 0.0.4"
+pod "Poly", "~> 0.1.0"
 
 # Carthage
 
-github "piemonte/Poly" ~> 0.0.4
+github "piemonte/Poly" ~> 0.1.0
 
 # Swift PM
 

@@ -62,7 +62,7 @@ public class ViewController: UIViewController {
         self._arView = ARSCNView(frame: self.view.bounds)
         if let arView = self._arView {
             arView.delegate = self
-            arView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+            arView.debugOptions = [SCNDebugOptions.showWorldOrigin, SCNDebugOptions.showFeaturePoints]
             arView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             arView.backgroundColor = UIColor.black
             arView.autoenablesDefaultLighting = true

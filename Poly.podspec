@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Poly'
-  s.version  = '0.0.5'
+  s.version  = '0.1.0'
   s.license  = 'MIT'
   s.summary  = 'Unofficial Google Poly SDK'
   s.authors  = { "patrick piemonte" => "patrick.piemonte@gmail.com" }
@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.source_files = 'Sources/*.swift'
   s.requires_arc = true
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
   s.dependency 'Alamofire', '~> 4.7'
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.2'
+  s.dependency 'PromiseKit', '~> 6.4'
+  s.dependency 'Disk', '~> 0.4'
   s.dependency 'Cache', '~> 5.1'
   s.dependency 'ObjectMapper', '~> 3.3'
-  s.dependency 'PromiseKit', '~> 6.3'
-  s.dependency 'Disk', '~> 0.3'
 end

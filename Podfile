@@ -7,16 +7,16 @@ ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 # setup
 workspace './Poly.xcworkspace'
-swift_version = '4.0'
+swift_version = '4.2'
 use_frameworks!
 
 def shared_pods
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+  pod 'PromiseKit', '~> 6.4'
+  pod 'Disk', '~> 0.4'
   pod 'Cache', '~> 5.1'
   pod 'ObjectMapper', '~> 3.3'
-  pod 'PromiseKit', '~> 6.3'
-  pod 'Disk', '~> 0.3'
 end
 
 target 'Poly' do
