@@ -253,6 +253,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 72,
+      "symbol": "PolyAssetModel.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyAssetModel.swift",
+      "line": 82,
+      "symbol": "PolyAssetModel.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
       "line": null,
       "symbol": "PolyCache",
@@ -275,42 +289,42 @@
     },
     {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
-      "line": 53,
+      "line": 54,
       "symbol": "PolyCache.get(dataWithKey:completionHandler:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
-      "line": 66,
+      "line": 67,
       "symbol": "PolyCache.set(dataWithUrl:key:completionHandler:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
-      "line": 76,
+      "line": 77,
       "symbol": "PolyCache.set(data:key:completionHandler:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
-      "line": 89,
+      "line": 90,
       "symbol": "PolyCache.remove(withKey:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
-      "line": 93,
+      "line": 94,
       "symbol": "PolyCache.removeExpired()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyCache.swift",
-      "line": 97,
+      "line": 98,
       "symbol": "PolyCache.removeAll()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -358,6 +372,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 48,
+      "symbol": "PolyFileModel.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFileModel.swift",
+      "line": 58,
+      "symbol": "PolyFileModel.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
       "line": null,
       "symbol": "PolyFormatsModel",
@@ -397,6 +425,20 @@
       "line": 45,
       "symbol": "PolyFormatsModel.formatType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 49,
+      "symbol": "PolyFormatsModel.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyFormatsModel.swift",
+      "line": 59,
+      "symbol": "PolyFormatsModel.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -453,6 +495,20 @@
       "line": 46,
       "symbol": "PolyPresentationParamsModel.colorSpace",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 50,
+      "symbol": "PolyPresentationParamsModel.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/piemonte/Source/Poly/Sources/PolyPresentationParamsModel.swift",
+      "line": 59,
+      "symbol": "PolyPresentationParamsModel.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
