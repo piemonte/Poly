@@ -1,7 +1,6 @@
 # setup pods
 setup:
-	@echo ensure SSH is setup https://help.github.com/articles/generating-ssh-keys
-	@echo [installing public cocoapods]
+	@echo [installing cocoapods]
 	@sudo /usr/bin/gem install -n /usr/local/bin cocoapods
 	@pod setup
 

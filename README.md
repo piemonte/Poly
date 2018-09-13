@@ -28,11 +28,11 @@ You can install the dependencies with the command `pod install` or by running th
 
 # CocoaPods
 
-pod "Poly", "~> 0.0.4"
+pod "Poly", "~> 0.1.0"
 
 # Carthage
 
-github "piemonte/Poly" ~> 0.0.4
+github "piemonte/Poly" ~> 0.1.0
 
 # Swift PM
 
