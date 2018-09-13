@@ -466,7 +466,7 @@ extension Poly {
                         do {
                             let filename = urlRequest.lastPathComponent
                             try Disk.save(data, to: .caches, as: filename)
-                            let fileUrl = try Disk.getURL(for: filename, in: .caches)
+                            let fileUrl = try Disk.url(for: filename, in: .caches)
                             seal.fulfill(fileUrl)
                         } catch let error {
                             seal.reject(error)

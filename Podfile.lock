@@ -24,10 +24,10 @@ DEPENDENCIES:
   - Alamofire (~> 4.7)
   - AlamofireNetworkActivityIndicator (~> 2.2)
   - Cache (~> 5.1)
-  - Disk (~> 0.3)
+  - Disk (~> 0.4)
   - IGListKit (= 3.4.0)
   - ObjectMapper (~> 3.3)
-  - PromiseKit (~> 6.3)
+  - PromiseKit (~> 6.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -48,6 +48,6 @@ SPEC CHECKSUMS:
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PromiseKit: ae3616f45d7bb9bf4ff1e91abc9b7a8c48a340e0
 
-PODFILE CHECKSUM: 0782832b07f6117c01bbed5a4b617ce606814405
+PODFILE CHECKSUM: 49749e3f2d1e2c129f5cc70706d8d81f233f94ce
 
 COCOAPODS: 1.5.3

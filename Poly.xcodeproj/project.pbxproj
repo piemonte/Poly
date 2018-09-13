@@ -23,7 +23,6 @@
 		069CF84120A27EDE00D69DE9 /* PolyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C995AF20A1ED3A00D5F886 /* PolyAssetModel.swift */; };
 		069D60721EA90D7900D18F59 /* PolyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D60711EA90D7900D18F59 /* PolyCache.swift */; };
 		069D60731EA90D7900D18F59 /* PolyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D60711EA90D7900D18F59 /* PolyCache.swift */; };
-		06AC206220A0FFFA00D37921 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06DE65AF1E18E3BE00C064DE /* Info.plist */; };
 		06AC206720A1006F00D37921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AC206620A1006F00D37921 /* LaunchScreen.storyboard */; };
 		06C995B020A1ED3A00D5F886 /* PolyAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C995AF20A1ED3A00D5F886 /* PolyAssetModel.swift */; };
 		06DE65A41E18E3BE00C064DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DE65A31E18E3BE00C064DE /* AppDelegate.swift */; };
@@ -303,7 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06AC206220A0FFFA00D37921 /* Info.plist in Resources */,
 				06AC206720A1006F00D37921 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
