@@ -217,7 +217,7 @@ extension Poly {
 extension Poly {
     
     /// UIApplication integration support for background transfers
-    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self._reachabilityManager?.listener = { status in
             self._reachabilityStatus = status
         }
@@ -409,7 +409,7 @@ extension Poly {
             
             var rootPath: URL? = nil
             var resourcePaths: [URL]? = nil
-            var totalFileCount = 1 + (resourceFiles?.count ?? 0)
+            // var totalFileCount = 1 + (resourceFiles?.count ?? 0)
         
             Poly.download(fileWithUrl: rootFile, cachePolicy: cachePolicy, progressHandler: { (progress) in
                 // TODO: setup total progress using totalFileCount
