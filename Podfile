@@ -12,7 +12,7 @@ use_frameworks!
 
 def shared_pods
   pod 'Alamofire', '~> 4.7'
-  pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.3'
   pod 'PromiseKit', '~> 6.4'
   pod 'Cache', '~> 5.1'
   pod 'Disk', '~> 0.4'

@@ -1,7 +1,7 @@
 # setup pods
 setup:
 	@echo [installing cocoapods]
-	@sudo /usr/bin/gem install -n /usr/local/bin cocoapods
+	@sudo /usr/bin/gem install -n /usr/local/bin cocoapods --pre
 	@pod setup
 
 pods:
