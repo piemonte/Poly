@@ -28,7 +28,7 @@ import Cache
 
 // MARK: - PolyCache
 
-public class PolyCache: NSObject {
+public class PolyCache {
     
     // MARK: - ivars
     
@@ -37,8 +37,7 @@ public class PolyCache: NSObject {
     
     // MARK: - object lifecycle
     
-    public override init() {
-        super.init()
+    public init() {
         let PolyaCacheName = "PolyCacheV1"
         let PolyCacheCacheMaxSizeBytes: UInt = 1024 * 1024 * 100
         
