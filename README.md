@@ -4,7 +4,7 @@
 
 This library makes it easy to integrate with Google Poly while providing a few additional client-side features.
 
-[![Build Status](https://travis-ci.org/piemonte/Poly.svg?branch=master)](https://travis-ci.org/piemonte/Poly) [![Pod Version](https://img.shields.io/cocoapods/v/Poly.svg?style=flat)](http://cocoadocs.org/docsets/Poly/) [![Swift Version](https://img.shields.io/badge/language-swift%204.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Poly/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/piemonte/Poly.svg?branch=master)](https://travis-ci.org/piemonte/Poly) [![Pod Version](https://img.shields.io/cocoapods/v/Poly.svg?style=flat)](http://cocoadocs.org/docsets/Poly/) [![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Poly/blob/master/LICENSE)
 
 |  | Features |
 |:---------:|:---------------------------------------------------------------|
@@ -12,7 +12,7 @@ This library makes it easy to integrate with Google Poly while providing a few a
 | &#11015;  | 3D model download management |
 | &#128230; | advanced 3D data caching |
 | &#128225; | Poly reachability support |
-| &#128038; | [Swift 4](https://developer.apple.com/swift/) |
+| &#128038; | [Swift 4.2](https://developer.apple.com/swift/) |
 
 ## Important
 
