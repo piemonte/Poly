@@ -11,7 +11,7 @@ swift_version = '4.2'
 use_frameworks!
 
 def shared_pods
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire', '~> 4.8'
   pod 'AlamofireNetworkActivityIndicator', '~> 2.3'
   pod 'PromiseKit', '~> 6.7'
   pod 'Cache', '~> 5.2'

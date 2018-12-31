@@ -21,7 +21,7 @@ PODS:
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire (~> 4.8)
   - AlamofireNetworkActivityIndicator (~> 2.3)
   - Cache (~> 5.2)
   - Disk (~> 0.4)
@@ -48,6 +48,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
 
-PODFILE CHECKSUM: 25afe4224146abadde05fcbd6f141b12f890f467
+PODFILE CHECKSUM: e06309a83fae68b3e59217729adc735a0e7141fc
 
 COCOAPODS: 1.6.0.beta.2
