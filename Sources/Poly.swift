@@ -236,13 +236,13 @@ extension Poly {
     
     public typealias ProgressHandler = (_ progress: Float) -> Void
     public typealias CompletionHandler = (_ data: Data?, _ error: Error?) -> Void
-    
     public typealias AssetsCompletionHandler = (_ assets: [PolyAssetModel]?, _ totalAssetCount: Int, _ nextPage: Int, _ error: Error?) -> Void
     
     /// Returns detailed information about an asset given its name.
+    @discardableResult
     public func get(assetWithIdentifier assetIdentifier: String,
-                    completionHandler: AssetsCompletionHandler? = nil) {
-        self.get(assetWithIdentifier: assetIdentifier) { (data, error) in
+                    completionHandler: AssetsCompletionHandler? = nil) -> PolyRequest? {
+        return self.get(assetWithIdentifier: assetIdentifier) { (data, error) in
             if let error = error {
                 completionHandler?(nil, 0, 0, error)
             } else if let data = data,
@@ -257,14 +257,15 @@ extension Poly {
     }
     
     /// Lists all public, remixable assets.
+    @discardableResult
     public func list(assetsWithKeywords keywords: [String],
                      curated: Bool = false,
                      category: String? = nil,
                      complexity: PolyComplexity = .unspecified,
                      format: PolyFormat = .obj,
                      pageToken: String? = nil,
-                     completionHandler: AssetsCompletionHandler? = nil) {
-        self.list(assetsWithKeywords: keywords,
+                     completionHandler: AssetsCompletionHandler? = nil) -> PolyRequest? {
+        return self.list(assetsWithKeywords: keywords,
                   curated: curated,
                   category: category,
                   complexity: complexity,
@@ -289,33 +290,35 @@ extension Poly {
     }
     
     /// Returns detailed information about an asset given its name, in raw data.
+    @discardableResult
     public func get(assetWithIdentifier assetIdentifier: String,
-                    completionHandler: CompletionHandler? = nil) {
+                    completionHandler: CompletionHandler? = nil) -> PolyRequest? {
         guard let apiKey = self.apiKey else {
             DispatchQueue.main.async {
                 completionHandler?(nil, PolyError.notAuthorized)
             }
-            return
+            return nil
         }
         
         let urlRequestString = GooglePolyBaseUrl + "/v1/assets/" + assetIdentifier
         let parameters = ["key" : apiKey]
-        self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
+        return self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
     }
     
     /// Lists all public, remixable assets, in raw data.
+    @discardableResult
     public func list(assetsWithKeywords keywords: [String],
                      curated: Bool = false,
                      category: String? = nil,
                      complexity: PolyComplexity = .unspecified,
                      format: PolyFormat = .obj,
                      pageToken: String? = nil,
-                     completionHandler: CompletionHandler? = nil) {
+                     completionHandler: CompletionHandler? = nil) -> PolyRequest? {
         guard let apiKey = self.apiKey else {
             DispatchQueue.main.async {
                 completionHandler?(nil, PolyError.notAuthorized)
             }
-            return
+            return nil
         }
 
         let urlRequestString = GooglePolyBaseUrl + "/v1/assets/"
@@ -336,8 +339,7 @@ extension Poly {
             keywordsString = keywords.first ?? ""
         }
         parameters["keywords"] = keywordsString
-        
-        self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
+        return self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
     }
 }
 
@@ -457,47 +459,53 @@ extension Poly {
                                   cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                                   progressHandler: ProgressHandler? = nil) -> Promise<URL> {
         return Promise { seal in
-            if let urlRequest = URL(string: urlString) {
-                let request = PolyRequest()
-                request.fetch(dataWithUrl: urlRequest, cachePolicy: cachePolicy, progressHandler: progressHandler) { (data, error) in
-                    if let error = error {
+            guard let urlRequest = URL(string: urlString) else {
+                seal.reject(PolyError.unknown)
+                return
+            }
+            
+            let request = PolyRequest()
+            request.fetch(dataWithUrl: urlRequest, cachePolicy: cachePolicy, progressHandler: progressHandler) { (data, error) in
+                if let error = error {
+                    seal.reject(error)
+                } else if let data = data {
+                    do {
+                        let filename = urlRequest.lastPathComponent
+                        try Disk.save(data, to: .caches, as: filename)
+                        let fileUrl = try Disk.url(for: filename, in: .caches)
+                        seal.fulfill(fileUrl)
+                    } catch let error {
                         seal.reject(error)
-                    } else if let data = data {
-                        do {
-                            let filename = urlRequest.lastPathComponent
-                            try Disk.save(data, to: .caches, as: filename)
-                            let fileUrl = try Disk.url(for: filename, in: .caches)
-                            seal.fulfill(fileUrl)
-                        } catch let error {
-                            seal.reject(error)
-                        }
-                    } else {
-                        seal.reject(PolyError.unknown)
                     }
+                } else {
+                    seal.reject(PolyError.unknown)
                 }
             }
         }
     }
     
-    internal func request(withUrlString urlString: String, parameters: [String: Any]? = nil, completionHandler: CompletionHandler? = nil) {
-        if let urlRequest = URL(string: urlString) {
-            let request = PolyRequest()
-            request.request(withUrl: urlRequest, parameters: parameters) { (data, error) in
-                if let error = error {
-                    DispatchQueue.main.async {
-                        completionHandler?(nil, error)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completionHandler?(data, nil)
-                    }
-                }
-            }
-        } else {
+    @discardableResult
+    internal func request(withUrlString urlString: String, parameters: [String: Any]? = nil, completionHandler: CompletionHandler? = nil) -> PolyRequest? {
+        guard let urlRequest = URL(string: urlString) else {
             DispatchQueue.main.async {
                 completionHandler?(nil, PolyError.invalid)
             }
+            return nil
         }
+        
+        let request = PolyRequest()
+        request.request(withUrl: urlRequest, parameters: parameters) { (data, error) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completionHandler?(nil, error)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler?(data, nil)
+                }
+            }
+        }
+        return request
     }
     
 }
