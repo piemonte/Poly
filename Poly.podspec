@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.swift'
   s.requires_arc = true
   s.swift_version = '4.2'
-  s.dependency 'Alamofire', '~> 4.7'
+  s.dependency 'Alamofire', '~> 4.8'
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.3'
   s.dependency 'PromiseKit', '~> 6.7'
   s.dependency 'Cache', '~> 5.2'
