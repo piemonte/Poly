@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.authors  = { "patrick piemonte" => "patrick.piemonte@gmail.com" }
   s.homepage = 'https://github.com/piemonte/Poly'
   s.source   = { :git => 'https://github.com/piemonte/Poly.git', :tag => s.version }
+  s.documentation_url = 'https://piemonte.github.io/Poly/'
   s.ios.deployment_target = '11.0'
   s.source_files = 'Sources/*.swift'
   s.requires_arc = true
