@@ -260,12 +260,10 @@
 				TargetAttributes = {
 					066A17091E6F7CE600514A95 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WPFGSL5BLN;
 						ProvisioningStyle = Automatic;
 					};
 					06DE659F1E18E3BE00C064DE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WPFGSL5BLN;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
@@ -422,7 +420,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WPFGSL5BLN;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -444,7 +442,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WPFGSL5BLN;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -574,7 +572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A82E0817DE40B57A9539F7E /* Pods-Poly_iOS.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = WPFGSL5BLN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Poly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickpiemonte.Poly;
@@ -587,7 +585,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C4A04090F85AAE2428FBB3F /* Pods-Poly_iOS.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = WPFGSL5BLN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Poly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrickpiemonte.Poly;
