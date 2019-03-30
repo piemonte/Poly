@@ -28,11 +28,11 @@ You can install the dependencies with the command `pod install` or by running th
 
 # CocoaPods
 
-pod "Poly", "~> 0.1.0"
+pod "Poly", "~> 0.2.0"
 
 # Carthage
 
-github "piemonte/Poly" ~> 0.1.0
+github "piemonte/Poly" ~> 0.2.0
 
 # Swift PM
 
@@ -42,6 +42,22 @@ let package = Package(
     ]
 )
 
+```
+
+With Xcode 10.2, one of Poly's dependencies currently requires this script in your `Podfile` to use this post install routine until [this PR](https://github.com/hyperoslo/Cache/pull/236) has landed.
+
+```sh
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == 'Cache'
+      target.build_configurations.each do |config|
+        level = '-Osize'
+        config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = level
+        puts "Set #{target.name} #{config.name} to Optimization Level #{level}"
+      end
+    end
+  end
+end
 ```
 
 Alternatively, drop the [source files](https://github.com/piemonte/Poly/tree/master/Sources) into your Xcode project.

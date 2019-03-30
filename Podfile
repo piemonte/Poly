@@ -27,3 +27,15 @@ target 'Poly_iOS' do
   pod 'IGListKit', '3.4.0'
   shared_pods
 end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == 'Cache'
+      target.build_configurations.each do |config|
+        level = '-Osize'
+        config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = level
+        puts "Set #{target.name} #{config.name} to Optimization Level #{level}"
+      end
+    end
+  end
+end

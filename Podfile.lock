@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - AlamofireNetworkActivityIndicator (2.3.0):
     - Alamofire (~> 4.7)
   - Cache (5.2.0)
@@ -40,7 +40,7 @@ SPEC REPOS:
     - PromiseKit
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireNetworkActivityIndicator: 18346ff6d770d9513d0ac6f2d99706f40f93dbaa
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   Disk: ef2956657d5bb56034b38b29b352170165226440
@@ -48,6 +48,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
 
-PODFILE CHECKSUM: eedc132336d0a7315bc2b2be91e9d98ffc4765f8
+PODFILE CHECKSUM: 84c5e281a07a43f33cbeb0dc3e382ba1c20f3077
 
-COCOAPODS: 1.7.0.beta.2
+COCOAPODS: 1.7.0.beta.3
