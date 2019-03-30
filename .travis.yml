@@ -6,7 +6,7 @@ env:
   - LANG=en_US.UTF-8
   - IOS_SDK=iphonesimulator12.2
 before_install:
-  - gem install cocoapods --no-ri --no-document --quiet
+  - gem install cocoapods
   - pod repo update
   - pod install
 script:
