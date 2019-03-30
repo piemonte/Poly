@@ -84,7 +84,7 @@ public enum PolyComplexity: String {
 // MARK: - Poly
 
 /// Poly, Unofficial Google Poly SDK
-public class Poly {
+public final class Poly {
 
     // MARK: - properties
     

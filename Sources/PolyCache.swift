@@ -28,12 +28,12 @@ import Cache
 
 // MARK: - PolyCache
 
-public class PolyCache {
+public final class PolyCache {
     
     // MARK: - ivars
     
-    internal var _storage: Storage<Data>?
-    internal var _diskExpiry: Expiry = .date(Date().addingTimeInterval(3600 * 24 * 90))
+    private var _storage: Storage<Data>?
+    private var _diskExpiry: Expiry = .date(Date().addingTimeInterval(3600 * 24 * 90))
     
     // MARK: - object lifecycle
     

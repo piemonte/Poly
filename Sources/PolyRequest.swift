@@ -27,7 +27,7 @@ import Foundation
 import Alamofire
 import AlamofireNetworkActivityIndicator
 
-public class PolyRequest {
+public final class PolyRequest {
     
     // MARK: - types
     
@@ -53,7 +53,7 @@ public class PolyRequest {
     
     // MARK: - ivars
     
-    internal var _request: Request?
+    private var _request: Request?
     
 }
 
