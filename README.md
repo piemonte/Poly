@@ -44,7 +44,9 @@ let package = Package(
 
 ```
 
-With Xcode 10.2, one of Poly's dependencies currently requires this script in your `Podfile`. This routine is required until until [this PR](https://github.com/hyperoslo/Cache/pull/236) has landed.
+With Xcode 10.2, one of Poly's dependencies currently requires this script in your `Podfile` post install.
+
+This is only required until [this PR](https://github.com/hyperoslo/Cache/pull/236) has landed.
 
 ```ruby
 post_install do |installer|

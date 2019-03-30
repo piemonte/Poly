@@ -255,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Patrick Piemonte";
 				TargetAttributes = {
 					066A17091E6F7CE600514A95 = {
@@ -271,7 +271,7 @@
 			};
 			buildConfigurationList = 06DE659B1E18E3BE00C064DE /* Build configuration list for PBXProject "Poly" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
