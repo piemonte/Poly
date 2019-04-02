@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.3'
   s.dependency 'PromiseKit', '~> 6.8'
   s.dependency 'Cache', '~> 5.2'
-  s.dependency 'Disk', '~> 0.4'
+  s.dependency 'Disk', '~> 0.5'
   s.dependency 'ObjectMapper', '~> 3.4'
 end
