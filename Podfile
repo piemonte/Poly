@@ -7,7 +7,7 @@ ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 # setup
 workspace './Poly.xcworkspace'
-swift_version = '4.2'
+swift_version = '5.0'
 use_frameworks!
 
 def shared_pods
