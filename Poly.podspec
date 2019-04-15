@@ -17,5 +17,4 @@ Pod::Spec.new do |s|
   s.dependency 'Cache', '~> 5.2'
   s.dependency 'Disk', '~> 0.6'
   s.dependency 'ObjectMapper', '~> 3.4'
-  s.ios.pod_target_xcconfig = { 'SWIFT_OPTIMIZATION_LEVEL' => '-Osize' }
 end
