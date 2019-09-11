@@ -11,11 +11,10 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.swift'
   s.requires_arc = true
   s.swift_version = '5.0'
-  s.dependency 'Alamofire', '~> 4.8'
-  s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.3'
-  s.dependency 'PromiseKit', '~> 6.8'
+  s.dependency 'Alamofire', '~> 4.9'
+  s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.4'
+  s.dependency 'PromiseKit', '~> 6.11'
   s.dependency 'Disk', '~> 0.6'
-  s.dependency 'ObjectMapper', '~> 3.4'
-
+  s.dependency 'ObjectMapper', '~> 3.5'
   s.dependency 'Cache', '~> 5.2'
 end

@@ -10,13 +10,15 @@ workspace './Poly.xcworkspace'
 swift_version = '5.0'
 use_frameworks!
 
+install! 'cocoapods', :disable_input_output_paths => true
+
 def shared_pods
-  pod 'Alamofire', '~> 4.8'
-  pod 'AlamofireNetworkActivityIndicator', '~> 2.3'
-  pod 'PromiseKit', '~> 6.8'
+  pod 'Alamofire', '~> 4.9'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.4'
+  pod 'PromiseKit', '~> 6.11'
   pod 'Cache', '~> 5.2'
   pod 'Disk', '~> 0.6'
-  pod 'ObjectMapper', '~> 3.4'
+  pod 'ObjectMapper', '~> 3.5'
 end
 
 target 'Poly' do
