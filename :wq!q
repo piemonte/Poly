@@ -15,4 +15,3 @@ script:
 after_success:
     - 'echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
     - semantic-release
-
