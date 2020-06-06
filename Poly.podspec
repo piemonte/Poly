@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.dependency 'Alamofire', '~> 4.9'
   s.dependency 'AlamofireNetworkActivityIndicator', '~> 2.4'
-  s.dependency 'PromiseKit', '~> 6.11'
+  s.dependency 'PromiseKit', '~> 6.13'
   s.dependency 'Disk', '~> 0.6'
-  s.dependency 'ObjectMapper', '~> 3.5'
-  s.dependency 'Cache', '~> 5.2'
+  s.dependency 'ObjectMapper', '~> 4.2'
+  s.dependency 'Cache', '~> 5.3'
 end
