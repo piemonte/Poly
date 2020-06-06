@@ -32,11 +32,11 @@ You can install the dependencies with the command `pod install` or by running th
 
 # CocoaPods
 
-pod "Poly", "~> 0.2.0"
+pod "Poly", "~> 0.4.0"
 
 # Carthage
 
-github "piemonte/Poly" ~> 0.2.0
+github "piemonte/Poly" ~> 0.4.0
 
 # Swift PM
 
@@ -46,24 +46,6 @@ let package = Package(
     ]
 )
 
-```
-
-With Xcode 10.2, one of Poly's dependencies currently requires this script in your `Podfile` post install.
-
-This is only required until [this PR](https://github.com/hyperoslo/Cache/pull/236) has landed.
-
-```ruby
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    if target.name == 'Cache'
-      target.build_configurations.each do |config|
-        level = '-Osize'
-        config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = level
-        puts "Set #{target.name} #{config.name} to Optimization Level #{level}"
-      end
-    end
-  end
-end
 ```
 
 Alternatively, drop the [source files](https://github.com/piemonte/Poly/tree/master/Sources) into your Xcode project.
@@ -108,7 +90,7 @@ Poly.shared.get(assetWithIdentifier: "10u8FYPC5Br") { (data, error) in
 }
 ```
 
-Download a 3D asset and it's resources for rendering, either using the asset identifier or the asset model object itself.
+Download a 3D asset and its resources for rendering, either using the asset identifier or the asset model object itself.
 
 ```swift
 Poly.shared.download(assetWithIdentifier: "10u8FYPC5Br", progressHandler: { (progress) in
