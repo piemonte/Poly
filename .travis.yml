@@ -9,7 +9,6 @@ before_install:
   - gem install cocoapods
   - pod repo update
   - pod install
-before_script: 'echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
 script:
   - xcodebuild -showsdks
   - xcodebuild -workspace Poly.xcworkspace -scheme 'Debug' -sdk $IOS_SDK build analyze

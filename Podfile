@@ -1,5 +1,4 @@
-# include public/private pods
-source 'git@github.com:cocoapods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 platform :ios, '11.0'
 
