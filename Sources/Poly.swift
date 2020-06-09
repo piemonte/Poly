@@ -25,7 +25,6 @@
 
 import Foundation
 import Alamofire
-import AlamofireNetworkActivityIndicator
 import ObjectMapper
 import PromiseKit
 import Disk
@@ -222,7 +221,6 @@ extension Poly {
             self._reachabilityStatus = status
         }
         self._reachabilityManager?.startListening()
-        NetworkActivityIndicatorManager.shared.isEnabled = true
         return true
     }
 

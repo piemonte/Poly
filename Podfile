@@ -11,7 +11,6 @@ install! 'cocoapods', :disable_input_output_paths => true
 
 def shared_pods
   pod 'Alamofire', '~> 4.9'
-  pod 'AlamofireNetworkActivityIndicator', '~> 2.4'
   pod 'PromiseKit', '~> 6.13'
   pod 'Cache', '~> 5.3'
   pod 'Disk', '~> 0.6'

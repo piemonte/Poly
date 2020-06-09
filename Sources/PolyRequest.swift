@@ -25,7 +25,6 @@
 
 import Foundation
 import Alamofire
-import AlamofireNetworkActivityIndicator
 
 public final class PolyRequest {
     
@@ -62,16 +61,13 @@ public final class PolyRequest {
 extension PolyRequest {
     
     public func request(withUrl url: URL, parameters: [String: Any]? = nil, completionHandler: Poly.CompletionHandler? = nil) {
-        NetworkActivityIndicatorManager.shared.incrementActivityCount()
         self._request = Poly.shared._sessionClient?.request(url, parameters: parameters)
             .responseData { response in
                 if let data = response.result.value {
-                    NetworkActivityIndicatorManager.shared.decrementActivityCount()
                     DispatchQueue.main.async {
                         completionHandler?(data, nil)
                     }
                 } else {
-                    NetworkActivityIndicatorManager.shared.decrementActivityCount()
                     DispatchQueue.main.async {
                         completionHandler?(nil, response.error)
                     }
@@ -92,8 +88,6 @@ extension PolyRequest {
                     completionHandler?(data, nil)
                 }
             } else {
-                NetworkActivityIndicatorManager.shared.incrementActivityCount()
-                
                 // Note: downloading directly to disk may be desired
                 // let destination: DownloadRequest.DownloadFileDestination = { _, _ in
                 //     let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -110,12 +104,10 @@ extension PolyRequest {
                     .responseData { response in
                         if let data = response.result.value {
                             Poly.shared._cache.set(data: data, key: urlRequest.cacheKey)
-                            NetworkActivityIndicatorManager.shared.decrementActivityCount()
                             DispatchQueue.main.async {
                                 completionHandler?(data, nil)
                             }
                         } else {
-                            NetworkActivityIndicatorManager.shared.decrementActivityCount()
                             DispatchQueue.main.async {
                                 completionHandler?(nil, response.error)
                             }
