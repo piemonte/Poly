@@ -233,23 +233,28 @@ extension Poly {
     // MARK: - request completion types
     
     public typealias ProgressHandler = (_ progress: Float) -> Void
-    public typealias CompletionHandler = (_ data: Data?, _ error: Error?) -> Void
+    public typealias CompletionHandler = (Swift.Result<Data?, Error>) -> Void
     public typealias AssetsCompletionHandler = (_ assets: [PolyAssetModel]?, _ totalAssetCount: Int, _ nextPage: Int, _ error: Error?) -> Void
     
     /// Returns detailed information about an asset given its name.
     @discardableResult
     public func get(assetWithIdentifier assetIdentifier: String,
                     completionHandler: AssetsCompletionHandler? = nil) -> PolyRequest? {
-        return self.get(assetWithIdentifier: assetIdentifier) { (data, error) in
-            if let error = error {
+        return self.get(assetWithIdentifier: assetIdentifier) { (result) in
+            switch result {
+            case .success(let data):
+                if let data = data,
+                          let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)),
+                          let jsonDict = json as? [String:Any],
+                          let asset = PolyAssetModel.createPolyAssetModel(withJson: jsonDict) {
+                    completionHandler?([asset], 1, 0, nil)
+                } else {
+                    completionHandler?(nil, 0, 0, PolyError.unknown)
+                }
+                break
+            case .failure(let error):
                 completionHandler?(nil, 0, 0, error)
-            } else if let data = data,
-                      let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)),
-                      let jsonDict = json as? [String:Any],
-                      let asset = PolyAssetModel.createPolyAssetModel(withJson: jsonDict) {
-                completionHandler?([asset], 1, 0, nil)
-            } else {
-                completionHandler?(nil, 0, 0, error)
+                break
             }
         }
     }
@@ -268,22 +273,27 @@ extension Poly {
                   category: category,
                   complexity: complexity,
                   format: format,
-                  pageToken: pageToken) { (data, error) in
-            if let error = error {
-                completionHandler?(nil, 0, 0, error)
-            } else if let data = data,
-                let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)),
-                let jsonDict = json as? [String:Any] {
-                
-                let assetsArray = jsonDict["assets"] as? [[String:Any]] ?? []
-                let assets: [PolyAssetModel] = Mapper<PolyAssetModel>().mapArray(JSONArray: assetsArray)
-                let totalAssetCount = jsonDict["totalAssetCount"] as? Int ?? 0
-                let nextPage = jsonDict["nextPage"] as? Int ?? 0
+                  pageToken: pageToken) { (result) in
+                    switch result {
+                    case .success(let data):
+                        if let data = data,
+                            let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)),
+                            let jsonDict = json as? [String:Any] {
+                            
+                            let assetsArray = jsonDict["assets"] as? [[String:Any]] ?? []
+                            let assets: [PolyAssetModel] = Mapper<PolyAssetModel>().mapArray(JSONArray: assetsArray)
+                            let totalAssetCount = jsonDict["totalAssetCount"] as? Int ?? 0
+                            let nextPage = jsonDict["nextPage"] as? Int ?? 0
 
-                completionHandler?(assets, totalAssetCount, nextPage, nil)
-            } else {
-                completionHandler?(nil, 0, 0, error)
-            }
+                            completionHandler?(assets, totalAssetCount, nextPage, nil)
+                        } else {
+                            completionHandler?(nil, 0, 0, PolyError.unknown)
+                        }
+                        break
+                    case .failure(let error):
+                        completionHandler?(nil, 0, 0, error)
+                        break
+                    }
         }
     }
     
@@ -293,7 +303,7 @@ extension Poly {
                     completionHandler: CompletionHandler? = nil) -> PolyRequest? {
         guard let apiKey = self.apiKey else {
             DispatchQueue.main.async {
-                completionHandler?(nil, PolyError.notAuthorized)
+                completionHandler?(.failure(PolyError.notAuthorized))
             }
             return nil
         }
@@ -314,7 +324,7 @@ extension Poly {
                      completionHandler: CompletionHandler? = nil) -> PolyRequest? {
         guard let apiKey = self.apiKey else {
             DispatchQueue.main.async {
-                completionHandler?(nil, PolyError.notAuthorized)
+                completionHandler?(.failure(PolyError.notAuthorized))
             }
             return nil
         }
@@ -463,20 +473,25 @@ extension Poly {
             }
             
             let request = PolyRequest()
-            request.fetch(dataWithUrl: urlRequest, cachePolicy: cachePolicy, progressHandler: progressHandler) { (data, error) in
-                if let error = error {
-                    seal.reject(error)
-                } else if let data = data {
-                    do {
-                        let filename = urlRequest.lastPathComponent
-                        try Disk.save(data, to: .caches, as: filename)
-                        let fileUrl = try Disk.url(for: filename, in: .caches)
-                        seal.fulfill(fileUrl)
-                    } catch let error {
-                        seal.reject(error)
+            request.fetch(dataWithUrl: urlRequest, cachePolicy: cachePolicy, progressHandler: progressHandler) { (result) in
+                switch result {
+                case .success(let data):
+                    if let data = data {
+                        do {
+                            let filename = urlRequest.lastPathComponent
+                            try Disk.save(data, to: .caches, as: filename)
+                            let fileUrl = try Disk.url(for: filename, in: .caches)
+                            seal.fulfill(fileUrl)
+                        } catch let error {
+                            seal.reject(error)
+                        }
+                    } else {
+                        seal.reject(PolyError.unknown)
                     }
-                } else {
-                    seal.reject(PolyError.unknown)
+                    break
+                case .failure(let error):
+                    seal.reject(error)
+                    break
                 }
             }
         }
@@ -486,21 +501,24 @@ extension Poly {
     internal func request(withUrlString urlString: String, parameters: [String: Any]? = nil, completionHandler: CompletionHandler? = nil) -> PolyRequest? {
         guard let urlRequest = URL(string: urlString) else {
             DispatchQueue.main.async {
-                completionHandler?(nil, PolyError.invalid)
+                completionHandler?(.failure(PolyError.invalid))
             }
             return nil
         }
         
         let request = PolyRequest()
-        request.request(withUrl: urlRequest, parameters: parameters) { (data, error) in
-            if let error = error {
+        request.request(withUrl: urlRequest, parameters: parameters) { (result) in
+            switch result {
+            case .success(let data):
                 DispatchQueue.main.async {
-                    completionHandler?(nil, error)
+                    completionHandler?(.success(data))
                 }
-            } else {
+                break
+            case .failure(let error):
                 DispatchQueue.main.async {
-                    completionHandler?(data, nil)
+                    completionHandler?(.failure(error))
                 }
+                break
             }
         }
         return request

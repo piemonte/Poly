@@ -54,10 +54,10 @@ extension PolyCache {
         self._storage?.async.object(forKey: key, completion: { (result) in
             switch result {
             case .value(let data):
-                completionHandler?(data, nil)
+                completionHandler?(.success(data))
                 break
             case .error(let error):
-                completionHandler?(nil, error)
+                completionHandler?(.failure(error))
                 break
             }
         })
@@ -68,7 +68,7 @@ extension PolyCache {
             self.set(data: data, key: key, completionHandler: completionHandler)
         } else {
             DispatchQueue.main.async {
-                completionHandler?(nil, PolyError.unknown)
+                completionHandler?(.failure(PolyError.unknown))
             }
         }
     }
@@ -76,13 +76,13 @@ extension PolyCache {
     public func set(data: Data, key: String, completionHandler: Poly.CompletionHandler? = nil) {
         self._storage?.async.setObject(data, forKey: key, expiry: self._diskExpiry, completion: { (result) in
             switch result {
-            case .value(_):
-                completionHandler?(nil, nil)
-                break
-            case .error(let error):
-                completionHandler?(nil, error)
-                break
-            }
+              case .value(_):
+                  completionHandler?(.success(nil))
+                  break
+              case .error(let error):
+                  completionHandler?(.failure(error))
+                  break
+              }
         })
     }
     

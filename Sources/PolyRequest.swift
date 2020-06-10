@@ -54,6 +54,11 @@ public final class PolyRequest {
     
     private var _request: Request?
     
+    // MARK: - object lifecycle
+    
+    public init() {
+    }
+    
 }
 
 // MARK: - fetch
@@ -65,11 +70,11 @@ extension PolyRequest {
             .responseData { response in
                 if let data = response.result.value {
                     DispatchQueue.main.async {
-                        completionHandler?(data, nil)
+                        completionHandler?(.success(data))
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completionHandler?(nil, response.error)
+                        completionHandler?(.failure(response.error ?? PolyError.unknown))
                     }
                 }
         }
@@ -82,12 +87,14 @@ extension PolyRequest {
         Poly.shared._cache.removeExpired()
 
         let urlRequest = URLRequest(url: url)
-        let fetchCompletionHandler: Poly.CompletionHandler = {(data, error) in
-            if let data = data {
+        let fetchCompletionHandler: Poly.CompletionHandler = {(result) in
+            switch result {
+            case .success(let data):
                 DispatchQueue.main.async {
-                    completionHandler?(data, nil)
+                    completionHandler?(.success(data))
                 }
-            } else {
+                break
+            case .failure:
                 // Note: downloading directly to disk may be desired
                 // let destination: DownloadRequest.DownloadFileDestination = { _, _ in
                 //     let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -105,31 +112,35 @@ extension PolyRequest {
                         if let data = response.result.value {
                             Poly.shared._cache.set(data: data, key: urlRequest.cacheKey)
                             DispatchQueue.main.async {
-                                completionHandler?(data, nil)
+                                completionHandler?(.success(data))
                             }
                         } else {
                             DispatchQueue.main.async {
-                                completionHandler?(nil, response.error)
+                                completionHandler?(.failure(response.error ?? PolyError.unknown))
                             }
                         }
                 }
+                break
             }
         }
         
         switch cachePolicy {
         case .fetchIgnoringCacheData:
-            fetchCompletionHandler(nil, nil)
+            fetchCompletionHandler(.success(nil))
             break
         case .returnCacheDataDontFetch:
-            Poly.shared._cache.get(dataWithKey: urlRequest.cacheKey) { (data, error) in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        completionHandler?(data, nil)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completionHandler?(nil, PolyError.invalid)
-                    }
+            Poly.shared._cache.get(dataWithKey: urlRequest.cacheKey) { (result) in
+                switch result {
+                    case .success(let data):
+                        DispatchQueue.main.async {
+                            completionHandler?(.success(data))
+                        }
+                    break
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+                            completionHandler?(.failure(error))
+                        }
+                    break
                 }
             }
             break
