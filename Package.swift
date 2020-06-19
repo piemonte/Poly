@@ -42,8 +42,7 @@ let package = Package(
     targets: [
         .target(
             name: "Poly",
-            path: "Sources",
-            dependencies: []),
+            path: "Sources"),
     ],
     swiftLanguageVersions: [.v5]
 )
