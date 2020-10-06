@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.9.0)
-  - Cache (5.3.0)
-  - Disk (0.6.3)
+  - Alamofire (4.9.1)
+  - Cache (6.0.0)
+  - Disk (0.6.4)
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
@@ -18,14 +18,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.9)
-  - Cache (~> 5.3)
+  - Cache (~> 6.0)
   - Disk (~> 0.6)
   - IGListKit (= 4.0.0)
   - ObjectMapper (~> 4.2)
   - PromiseKit (~> 6.13)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Cache
     - Disk
@@ -35,14 +35,14 @@ SPEC REPOS:
     - PromiseKit
 
 SPEC CHECKSUMS:
-  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
-  Cache: 48762993ec44e1d93483c4d4a13edd18452326f4
-  Disk: 76cccb6fed1c27cd661bbdea7b117d887c2f72e5
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
+  Disk: dcee5c2e98fb72f9a924cde8da8435b08244a80e
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
 
-PODFILE CHECKSUM: 9d2f217c1154469b6f3c35550cd7f8c67ca32eed
+PODFILE CHECKSUM: 73361b9c29c4ff6f734ee9c6f4820608e88a7fa8
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0.rc.1

@@ -1,20 +1,20 @@
 # setup pods
-setup:
+setup-pods:
 	@echo [installing cocoapods]
 	@sudo /usr/bin/gem install -n /usr/local/bin cocoapods --pre
 	@pod repo update
 	@pod setup
 
-pods:
-	@echo [updating pods]
-	@echo ensure you have the latest cocoapods, run make setup
-	@echo
+install-pods:
+	@echo [installing pods]
 	@-rm Podfile.lock
-	@-rm -rf Pods
+	@-rm -rf ./Pods
 	@pod install
 
-cleanpods:
+clean-pods:
 	@echo [removing local Pods caches]
 	@echo /Users/$$USER/.cocoapods/*
 	@echo ensure to re-run make setup!
 	@-rm -rf /Users/$$USER/.cocoapods/*
+
+.PHONY: setup-pods install-pods clean-pods 

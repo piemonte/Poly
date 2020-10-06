@@ -32,7 +32,7 @@ public final class PolyCache {
     
     // MARK: - ivars
     
-    private var _storage: Storage<Data>?
+    private var _storage: Storage<String, Data>?
     private var _diskExpiry: Expiry = .date(Date().addingTimeInterval(3600 * 24 * 90))
     
     // MARK: - object lifecycle

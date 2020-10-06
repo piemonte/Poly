@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name     = 'Poly'
-  s.version  = '0.5.0'
+  s.version  = '0.6.0'
   s.license  = 'MIT'
   s.summary  = 'Unofficial Google Poly SDK'
   s.authors  = { "patrick piemonte" => "patrick.piemonte@gmail.com" }
   s.homepage = 'https://github.com/piemonte/Poly'
   s.source   = { :git => 'https://github.com/piemonte/Poly.git', :tag => s.version }
   s.documentation_url = 'https://piemonte.github.io/Poly/'
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
   s.source_files = 'Sources/*.swift'
   s.requires_arc = true
   s.swift_version = '5.0'
@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.dependency 'PromiseKit', '~> 6.13'
   s.dependency 'Disk', '~> 0.6'
   s.dependency 'ObjectMapper', '~> 4.2'
-  s.dependency 'Cache', '~> 5.3'
+  s.dependency 'Cache', '~> 6.0'
 end

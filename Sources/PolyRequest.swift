@@ -79,7 +79,6 @@ extension PolyRequest {
                 }
         }
     }
-    
     public func fetch(dataWithUrl url: URL,
                       cachePolicy: CachePolicy = .returnCacheDataElseFetch,
                       progressHandler: Poly.ProgressHandler? = nil,

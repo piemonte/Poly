@@ -12,7 +12,7 @@ install! 'cocoapods', :disable_input_output_paths => true
 def shared_pods
   pod 'Alamofire', '~> 4.9'
   pod 'PromiseKit', '~> 6.13'
-  pod 'Cache', '~> 5.3'
+  pod 'Cache', '~> 6.0'
   pod 'Disk', '~> 0.6'
   pod 'ObjectMapper', '~> 4.2'
 end
