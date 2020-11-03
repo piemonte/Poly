@@ -29,9 +29,6 @@ import ObjectMapper
 import PromiseKit
 import Disk
 
-internal let GooglePolyHostname = "poly.googleapis.com"
-internal let GooglePolyBaseUrl = "https://" + GooglePolyHostname
-
 // MARK: - types
 
 /// Error types.
@@ -57,31 +54,34 @@ public enum PolyError: Error, CustomStringConvertible {
     }
 }
 
-// MARK: - Poly API param types
-
-/// Poly 3D formats
-public enum PolyFormat: String {
-    case blocks = "BLOCKS"
-    case fbx = "FBX"
-    case gltf = "GLTF"
-    case gltf2 = "GLTF2"
-    case obj = "OBJ"
-    case tilt = "TILT"
-}
-
-/// Poly asset complexity
-public enum PolyComplexity: String {
-    case unspecified = "COMPLEXITY_UNSPECIFIED"
-    case complex = "COMPLEX"
-    case medium = "MEDIUM"
-    case simple = "SIMPLE"
-}
-
 // MARK: - Poly
 
 /// Poly, Unofficial Google Poly SDK
 public final class Poly {
+    
+    // MARK: - types
+    
+    internal static let GooglePolyHostname = "poly.googleapis.com"
+    internal static let GooglePolyBaseUrl = "https://" + GooglePolyHostname
 
+    /// Poly 3D formats
+    public enum ModelFormat: String {
+        case blocks = "BLOCKS"
+        case fbx = "FBX"
+        case gltf = "GLTF"
+        case gltf2 = "GLTF2"
+        case obj = "OBJ"
+        case tilt = "TILT"
+    }
+
+    /// Poly asset complexity
+    public enum ModelComplexity: String {
+        case unspecified = "COMPLEXITY_UNSPECIFIED"
+        case complex = "COMPLEX"
+        case medium = "MEDIUM"
+        case simple = "SIMPLE"
+    }
+    
     // MARK: - properties
     
     /// Poly API Key, https://developers.google.com/poly/develop/api
@@ -133,7 +133,7 @@ public final class Poly {
     
     /// Initializer for Poly
     public init() {
-        self._reachabilityManager = NetworkReachabilityManager(host: GooglePolyHostname)
+        self._reachabilityManager = NetworkReachabilityManager(host: Poly.GooglePolyHostname)
         self._cache = PolyCache()
         self.setupClient()
     }
@@ -261,8 +261,8 @@ extension Poly {
     public func list(assetsWithKeywords keywords: [String],
                      curated: Bool = false,
                      category: String? = nil,
-                     complexity: PolyComplexity = .unspecified,
-                     format: PolyFormat = .obj,
+                     complexity: Poly.ModelComplexity = .unspecified,
+                     format: Poly.ModelFormat = .obj,
                      pageToken: String? = nil,
                      completionHandler: AssetsCompletionHandler? = nil) -> PolyRequest? {
         return self.list(assetsWithKeywords: keywords,
@@ -305,7 +305,7 @@ extension Poly {
             return nil
         }
         
-        let urlRequestString = GooglePolyBaseUrl + "/v1/assets/" + assetIdentifier
+        let urlRequestString = Poly.GooglePolyBaseUrl + "/v1/assets/" + assetIdentifier
         let parameters = ["key" : apiKey]
         return self.request(withUrlString: urlRequestString, parameters: parameters, completionHandler: completionHandler)
     }
@@ -315,8 +315,8 @@ extension Poly {
     public func list(assetsWithKeywords keywords: [String],
                      curated: Bool = false,
                      category: String? = nil,
-                     complexity: PolyComplexity = .unspecified,
-                     format: PolyFormat = .obj,
+                     complexity: Poly.ModelComplexity = .unspecified,
+                     format: Poly.ModelFormat = .obj,
                      pageToken: String? = nil,
                      completionHandler: CompletionHandler? = nil) -> PolyRequest? {
         guard let apiKey = self.apiKey else {
@@ -326,7 +326,7 @@ extension Poly {
             return nil
         }
 
-        let urlRequestString = GooglePolyBaseUrl + "/v1/assets/"
+        let urlRequestString = Poly.GooglePolyBaseUrl + "/v1/assets/"
         
         var parameters = ["key" : apiKey]
         parameters["curated"] = curated ? "true" : "false"
@@ -364,7 +364,7 @@ extension Poly {
     ///   - progressHandler: Handler for progress updates
     ///   - completionHandler: Handler for task completion
     public func download(assetWithIdentifier assetIdentifier: String,
-                         formatType: PolyFormat = .obj,
+                         formatType: Poly.ModelFormat = .obj,
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
                          completionHandler: DownloadCompletionHandler? = nil) {
@@ -392,7 +392,7 @@ extension Poly {
     ///   - progressHandler: Handler for progress updates
     ///   - completionHandler: Handler for task completion
     public func download(asset: PolyAssetModel,
-                         formatType: PolyFormat,
+                         formatType: Poly.ModelFormat,
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
                          completionHandler: DownloadCompletionHandler? = nil) {
