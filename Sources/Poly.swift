@@ -369,14 +369,16 @@ extension Poly {
     public func download(assetWithIdentifier assetIdentifier: String,
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
-                         completionHandler: DownloadCompletionHandler? = nil) {
+                         completionHandler: DownloadCompletionHandler? = nil,
+                         formatType: String  = "OBJ") {
         self.get(assetWithIdentifier: assetIdentifier) { (assetModels, totalCount, nextPage, error) in
             if let assetModels = assetModels,
                 let model = assetModels.first {
                 self.download(asset: model,
                               cachePolicy: cachePolicy,
                               progressHandler: progressHandler,
-                              completionHandler: completionHandler)
+                              completionHandler: completionHandler,
+                              formatType: formatType)
             } else {
                 DispatchQueue.main.async {
                     completionHandler?(nil, nil, PolyError.invalid)
@@ -395,11 +397,20 @@ extension Poly {
     public func download(asset: PolyAssetModel,
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
-                         completionHandler: DownloadCompletionHandler? = nil) {
+                         completionHandler: DownloadCompletionHandler? = nil,
+                         formatType: String) {
         var rootFile: String? = nil
         var resourceFiles: [String]? = nil
         
-        if let formats = asset.formats?.first {
+        var _fmts : PolyFormatsModel?
+        asset.formats?.forEach{ fmt in
+            if fmt.formatType == formatType {
+                _fmts = fmt
+            }
+        }
+        
+        
+        if let formats = _fmts {
             if let rootUrl = formats.root?.url {
                 rootFile = rootUrl
             }
