@@ -367,18 +367,18 @@ extension Poly {
     ///   - progressHandler: Handler for progress updates
     ///   - completionHandler: Handler for task completion
     public func download(assetWithIdentifier assetIdentifier: String,
+                         formatType: PolyFormat = .obj,
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
-                         completionHandler: DownloadCompletionHandler? = nil,
-                         formatType: String  = "OBJ") {
+                         completionHandler: DownloadCompletionHandler? = nil) {
         self.get(assetWithIdentifier: assetIdentifier) { (assetModels, totalCount, nextPage, error) in
             if let assetModels = assetModels,
                 let model = assetModels.first {
                 self.download(asset: model,
+                              formatType: formatType,
                               cachePolicy: cachePolicy,
                               progressHandler: progressHandler,
-                              completionHandler: completionHandler,
-                              formatType: formatType)
+                              completionHandler: completionHandler)
             } else {
                 DispatchQueue.main.async {
                     completionHandler?(nil, nil, PolyError.invalid)
@@ -395,16 +395,16 @@ extension Poly {
     ///   - progressHandler: Handler for progress updates
     ///   - completionHandler: Handler for task completion
     public func download(asset: PolyAssetModel,
+                         formatType: PolyFormat,
                          cachePolicy: PolyRequest.CachePolicy = .returnCacheDataElseFetch,
                          progressHandler: ProgressHandler? = nil,
-                         completionHandler: DownloadCompletionHandler? = nil,
-                         formatType: String) {
+                         completionHandler: DownloadCompletionHandler? = nil) {
         var rootFile: String? = nil
         var resourceFiles: [String]? = nil
         
         var _fmts : PolyFormatsModel?
         asset.formats?.forEach{ fmt in
-            if fmt.formatType == formatType {
+            if fmt.formatType == formatType.rawValue {
                 _fmts = fmt
             }
         }
