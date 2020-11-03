@@ -34,9 +34,6 @@ internal let GooglePolyBaseUrl = "https://" + GooglePolyHostname
 
 // MARK: - types
 
-/// Error domain for all Poly errors.
-public let PolyErrorDomain = "PolyErrorDomain"
-
 /// Error types.
 public enum PolyError: Error, CustomStringConvertible {
     case unknown
